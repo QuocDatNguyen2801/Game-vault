@@ -1,0 +1,9 @@
+[
+  { "question": "What is your favorite color?" },
+  { "question": "What is your favorite food?" },
+  { "question": "What is your favorite movie?" },
+  { "question": "What is your mother's first name?" },
+  { "question": "What is the name of your best friend?" },
+  { "question": "What was the name of your first pet?" },
+  { "question": "What city were you born in?" }
+]

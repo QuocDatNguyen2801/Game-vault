@@ -1,0 +1,91 @@
+@import url("variables.css");
+
+/* Header */
+.navbar-background {
+    background-color: var(--primary-foreground);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23F8FAFC' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.controller {
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover .controller {
+    color: hsl(199 89% 70%);
+}
+
+.title {
+    color: var(--accent);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-link {
+    color: var(--foreground);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.nav-link.active-link {
+    color: var(--accent);
+    font-weight: normal;
+}
+
+.cart-item-hover {
+    color: var(--foreground); 
+    transition: all 0.3s ease;
+}
+
+.cart-item-hover:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground); 
+}
+
+.login-btn {
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground); 
+}
+
+.register-btn {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: rgb(26, 182, 255);
+}
+
+.login-link, .register-link {
+    color: var(--foreground);
+}
+
+.user-profile-logo, .logout-logo {
+    color: var(--foreground); 
+    transition: all 0.3s ease;
+}
+
+.user-profile-logo:hover, .logout-logo:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground);
+}

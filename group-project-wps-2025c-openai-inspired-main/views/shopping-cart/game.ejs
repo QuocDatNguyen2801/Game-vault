@@ -1,0 +1,313 @@
+<div class="container-fluid game-background mt-2 pt-4 pb-5">
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/shop/admin" class="text-decoration-none text-light">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/shop/game/<%= product.slug %>" class="text-decoration-none text-light"><%= product.title %></a></li>
+            </ol>
+        </nav>
+        <!-- <a href="/shop/admin" class="back-to-shop d-flex flex-row align-items-center justify-content-start text-center gap-2 text-decoration-none p-3 py-2 mb-3">
+            <span><i class="bi bi-arrow-left-short"></i></span>
+            Back to Shop
+        </a> -->
+
+        <div class="row g-5">
+            <div class="col-md-8">
+                <div class="row d-flex flex-column">
+                    <div class="col-md">
+                        <img src="<%= product.image %>" class="customize-game-img img-fluid d-block w-100" alt="<%= product.title %>">
+                    </div>
+
+                    <div class="col-md mt-3 d-flex flex-column justify-content-center align-items-stretch gap-2">
+                        <span class="game-name fw-bold"><%= product.title %></span>
+
+                        <span class="muted"><%= product.description %></span>
+
+                        <div class="game-information-background p-md-4 p-3 pt-md-3 pt-2 mt-4">
+                            <span class="product-information fw-bold">Product Information</span>
+
+                            <div class="d-flex flex-column align-items-stretch justify-content-center mt-3 gap-2">
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <span class="muted">Category:</span>
+                                    <span class="game-category d-flex flex-row align-items-center justify-content-end gap-3">
+                                        <% product.categories.forEach(category => { %>
+                                            <a href="/categories/<%= category %>" class="game-category-list text-decoration-none py-1 px-2 text-center"><%= category %></a>
+                                        <% }) %>
+                                    </span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <span class="muted">Stock:</span>
+                                    <span class="game-stock"><%= product.stock %> units</span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <span class="muted">Price:</span>
+                                    <span class="game-price-info fw-bold">$<%= product.price %></span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-md-center
+                                align-items-start justify-content-between">
+                                    <span class="muted">Rating</span>
+
+                                    <span class="muted d-flex flex-md-row flex-column align-items-md-center justify-content-md-start align-items-end justify-content-center gap-md-3 gap-1">
+                                        <div class="d-flex flex-row align-items-center justify-content-center gap-md-3 gap-2">
+                                            <span class="star-collections">
+                                                <% for (let i = 1; i <= 5; i++) { %>
+                                                    <% if (i <= Math.round(product.rating)) { %>
+                                                        <span><i class="bi bi-star-fill star-color"></i></span>
+                                                    <% } else { %>
+                                                        <span><i class="bi bi-star"></i></span>
+                                                    <% } %>
+                                                <% } %>
+                                            </span>
+
+                                            <span class="muted ratings-gamevault">(<%= product.rating %>)</span>
+                                        </div>
+
+                                        <span class="game-reviews fw-bold py-1 px-2 text-center">
+                                            <span><i class="bi bi-people"></i></span>
+                                            <%= reviewCount %> review(s)
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex flex-column gap-4">
+                <div class="customize-your-order-background p-md-4 p-3 pt-md-3 pt-2">
+                    <span class="customize-your-order-title fw-bold">Customize Your Order</span>
+
+                    <form class="d-flex flex-column gap-3 mt-4" action="/cart/add/<%= product._id %>" method="POST" id="addToCartForm">
+                        <div>
+                            <label for="edition" class="form-label fw-bold mb-1">Edition</label>
+                            <input type="hidden" name="edition" id="editionInput" value="Standard">
+
+                            <div class="dropdown">
+                                <button class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="editionDropdown">
+                                    <span id="selectedEdition" class="selected-edition-text">Standard</span>
+                                </button>
+
+                                <ul class="dropdown-menu game-details-dropdown w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="editionDropdown">
+                                    <li>
+                                        <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="#"  data-value="Standard">
+                                            <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                            Standard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="#" data-value="Deluxe">
+                                            <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                            Deluxe
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="#" data-value="Ultimate">
+                                            <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                            Ultimate
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="quantity-input-container">
+                            <label for="quantity" class="form-label fw-bold mb-1">Quantity</label>
+                            <input type="number" class="form-control border-0 outline-0 mt-0 p-2 ps-3" name="quantity" id="quantity-<%= product._id %>" min="1" value="1">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="add-to-cart-background d-flex flex-column align-items-stretch justify-content-between gap-1 p-md-4 p-3 pt-md-3 pt-2 sticky-top">
+                    <span class="game-price fw-bold" id="detailPagePrice" data-base-price="<%= product.price.toFixed(2) %>">$<%= product.price.toFixed(2) %></span>
+
+                    <button type="submit" form="addToCartForm" class="text-decoration-none game-add-to-cart p-3 text-center d-flex flex-row align-items-center justify-content-center gap-3 mt-2 mb-3 border-0 outline-0">
+                        <span><i class="bi bi-cart"></i></span>
+                        Add to Cart
+                    </button>
+
+                    <hr class="text-secondary my-3 w-100">
+
+                    <div class="additional-details">
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <span class="muted">Developer</span>
+                            <span class="game-developer"><%= product.developer %></span>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <span class="muted">Publisher</span>
+                            <span class="game-publisher"><%= product.publisher %></span>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <span class="muted">Release Date</span>
+                            <span class="game-release-date"><%= new Date(product.releaseDate).toLocaleDateString() %></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="container py-5 w-100 customer-review" id="game-detail-reviews" data-game-title="<%= product.title %>" data-game-id="<%= product._id %>">
+        <div class="customer-review title text-center">
+            <h2 class="fw-bold">Reviews</h2>
+            <p id="reviewNote">See what others are saying about <%= product.title %></p>
+
+            <div class="writing-form mt-1">
+                <% if (currentUser) { %>
+                    <% if (!currentUser.isAdmin) { %>
+                        <p id="openReviewButton">Write Review</p>
+                    <% } %>
+                <% } else { %>
+                    <a href="/user/signin?next=<%= locals.currentUrl %>" class="text-decoration-none auth-link">
+                        <p>Write Review</p>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Add the search bar and star-rating filter -->
+        <div class="w-100 d-flex justify-content-end mt-1">
+            <div class="col-md-3 col-12 px-0 text-md-start text-start">
+                <div class="review-filter-dropdown dropdown" id="review-filter-dropdown">
+                    <button 
+                        class="review-dropdown dropdown-toggle w-100 text-start customize-search-filter p-2" 
+                        type="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                        id="reviewSortDropdown"
+                    >
+                        <span id="selectedSortOption">Stars Rating</span>
+                    </button>
+        
+                    <ul class="review-dropdown dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute">
+                        <li>
+                            <a class="review-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="All Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> All Stars</a>
+                        </li>
+        
+                        <li>
+                            <a class="review-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="5 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 5 Stars</a>
+                        </li>
+        
+                        <li>
+                            <a class="review-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="4 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 4 Stars</a>
+                        </li>
+        
+                        <li>
+                            <a class="review-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="3 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 3 Stars</a>
+                        </li>
+        
+                        <li>
+                            <a class="review-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="2 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 2 Stars</a>
+                        </li>
+        
+                        <li>
+                            <a class="review-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="1 Star"><span class="checkmark"><i class="bi bi-check2"></i></span> 1 Star</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- No review message -->
+        <div id="noReviewsMessage" class="no-review-message text-center mx-auto mt-4">
+            No reviews yet for <%= product.title %>. Be the first to write one!
+        </div>
+
+        <input type="hidden" id="currentLoggedInUser" value="<%= currentUser ? currentUser.username : '' %>">
+        <input type="hidden" id="isAdminUser" value="<%= currentUser ? currentUser.isAdmin : false %>">
+
+        <!-- Main contents -->
+        <div class="reviews-container d-flex mt-4 gy-4"></div>
+
+        <!-- Show more and Show less buttons -->
+        <div class="w-100 text-center mt-3 d-flex justify-content-center align-items-center gap-2">
+            <a href="/reviews?game=<%= encodeURIComponent(product.title) %>" class="btn btn-primary px-4 py-2" id="seeAllReviews">
+                See all reviews of this game!
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Popup overlay for Write Review form (hidden by default) -->
+    <div id="reviewOverlay" class="modal fade review-overlay">
+        <div class="review-form">
+            <div class="review-modal">
+
+                <!-- Title and subtitle of user's review -->
+                <header class="review-header d-flex justify-content-between align-items-center mb-3">
+                    <div class="header-text">
+                        <h2 id="reviewHeader" class="fw-semibold">Write a Review</h2>
+                        <p>Share your experience with this product</p>
+                    </div>
+                    <button class="close-btn" aria-label="Close dialog">×</button>
+                </header>
+
+                <!-- Horizontal divider -->
+                <hr class="divider" />
+
+                <!-- Input fields for users -->
+                <main class="review-main">
+
+                    <!-- Title of Reviews -->
+                    <label for="review-brief-title" class="form-label fw-semibold">Review Title</label>
+                    <input type="text" id="review-brief-title" placeholder="Summarize your experience..." required/>
+                    <div id="review-title-error" class="text-danger mt-1 review-field-error"></div>
+
+                    <!-- Rating selection -->
+                    <label for="review-rating" class="form-label fw-semibold">Rating</label>
+                    <div class="rating-select" id="ratingSelect">
+                        <div class="rating-select-trigger d-flex align-items-center justify-content-between form-control">
+                            <span id="ratingText">★★★★★</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+
+                        <ul class="rating-select-menu">
+                            <li data-value="5">★★★★★</li>
+                            <li data-value="4">★★★★☆</li>
+                            <li data-value="3">★★★☆☆</li>
+                            <li data-value="2">★★☆☆☆</li>
+                            <li data-value="1">★☆☆☆☆</li>
+                        </ul>
+
+                        <input type="hidden" id="review-rating" value="5">
+                    </div>
+
+                    <!-- Customer experience -->
+                    <label for="review-description" class="form-label fw-semibold">Your Review</label>
+                    <textarea id="review-description" placeholder="Tell us more about your experience..." required></textarea>
+                    <div id="review-description-error" class="review-field-error text-danger mt-1"></div>
+
+                    <!-- Customer's images -->
+                    <label for="review-image" class="form-label fw-semibold">Image (Optional)</label>
+                    <input type="file" id="review-image"/>
+                    <div id="review-image-error" class="review-field-error text-danger mt-1"></div>
+                </main>
+
+                <!-- Horizontal divider -->
+                <hr class="divider" />
+
+                <!-- Buttons for closing or submitting the form -->
+                <footer class="review-footer">
+                    <button class="btn btn-outline-secondary rev-form-cls-btn">Close</button>
+                    <button class="btn btn-submit rev-form-sm-btn">Submit Review</button>
+                </footer>
+
+            </div>
+        </div>
+    </div> 
+
+    <div id="successNotification" class="success-notification">
+        <div class="notification-content">
+            <div class="review-check-icon">                
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <h3 id="notificationText">Success!</h3>
+        </div>
+    </div>
+</div>

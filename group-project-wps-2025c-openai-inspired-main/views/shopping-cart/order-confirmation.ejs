@@ -1,0 +1,66 @@
+<div class="container-fluid order-confirmation-background mt-2 pt-4 pb-5">
+    <div class="container mx-auto d-flex flex-column justfy-content-center align-items-center">
+        <span><i class="bi bi-check2-circle check2 fw-bold"></i></span>
+        <h1 class="order-confirmation-title fw-bold">Order Confirmed!</h1>
+        <p class="muted text-center">Thank you for your purchase. Your order has been successfully confirmed.</p>
+        
+        <div class="order-confirmation-container p-md-4 p-3 pt-md-3 pt-2 mt-3 d-flex flex-column justify-content-center align-items-stretch gap-1">
+            <span class="order-summary-title fw-bold d-flex align-items-center justify-content-start gap-2">
+                <span><i class="bi bi-box-seam seam"></i></span>
+                Order Summary
+            </span>
+
+            <span class="muted mt-1">Order ID: <%= order._id %></span>
+
+            <div class="d-flex flex-row align-items-center justify-content-between my-4">
+                <span class="muted">Order Status</span>
+                <span class="confirmed fw-bold"><%= order.status %></span>
+            </div>
+
+            <div class="d-flex flex-row align-items-center justify-content-between">
+                <span class="muted">Order Date</span>
+                <span class="date-confirmed fw-bold"><%= new Date(order.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+            </div>
+
+            <div class="d-flex flex-row align-items-start justify-content-between my-4">
+                <span class="muted">
+                    <span><i class="bi bi-dpad"></i></span>
+                    Items
+                </span>
+
+                <div class="d-flex flex-column justify-content-center align-items-end gap-2">
+                    <% order.items.forEach(item => { %>
+                        <span class="items-confirmation fw-bold"><%= item.title %> x<%= item.quantity %> ($<%= item.price.toFixed(2) %>)</span>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center justify-content-between">
+                <span class="muted">
+                    <span><i class="bi bi-credit-card"></i></span>
+                    Total Amount
+                </span>
+
+                <span class="total-amount-confirmation fw-bold">$<%= Number(order.totals.total).toFixed(2) %></span>
+            </div>
+
+            <div class="d-flex flex-column align-items-start justify-content-center gap-2 my-4">
+                <span class="muted">
+                    <span><i class="bi bi-geo-alt"></i></span>
+                    Delivery Address
+                </span>
+
+                <span class="address-confirmation fw-bold"><%= order.shippingDetails.address %>, <%= order.shippingDetails.city %>, <%= order.shippingDetails.country %>, <%= order.shippingDetails.zip %></span>
+            </div>
+
+            <div class="confirmation-message p-3">
+                <span class="muted">Thank you for your purchase! You can track your order status from your profile page.</span>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center justify-content-center gap-3 mt-4">
+            <a href="/shop/admin" class="text-decoration-none continue-shopping-confirmation text-center px-md-4 px-3 py-2">Continue Shopping</a>
+            <a href="/orders" class="text-decoration-none view-orders-confirmation text-center px-md-4 px-3 py-2">View Orders</a>
+        </div>
+    </div>
+</div>

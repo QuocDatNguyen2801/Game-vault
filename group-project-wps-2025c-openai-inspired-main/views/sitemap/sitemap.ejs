@@ -1,0 +1,24 @@
+<div class="sitemap-header">
+  <h1 class="sitemap-title">Sitemap</h1>
+  <p class="sitemap-subtitle">Quick access to all sections of GameVault.</p>
+</div>
+<section class="sitemap-card">
+  <div class="sitemap-column">
+    <h3>Pages</h3>
+  </div>
+  <div class="sitemap-grid">
+    <% for (let col = 0; col < 3; col++) { %>
+    <div class="sitemap-column">
+      <ul class="sitemap-links">
+        <% publicRoutes.forEach((route, index) => { %>
+          <% if (index % 3 === col) { %>
+            <li>
+              <a href="<%= route.url %>"><%= route.name %></a>
+            </li>
+          <% } %>
+        <% }) %>
+      </ul>
+    </div>
+    <% } %>
+  </div>
+</section>

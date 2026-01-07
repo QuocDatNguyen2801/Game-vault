@@ -1,0 +1,242 @@
+<main class="container-fluid admin-shell">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard/admin" class="text-decoration-none text-light">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/dashboard/admin/products" class="text-decoration-none text-light">Shop Management</a></li>
+        </ol>
+    </nav>
+  <section class="admin-card">
+    <div class="admin-card__header">
+      <div>
+        <p class="admin-eyebrow">Catalog</p>
+        <h1 class="admin-section-title">Manage Products</h1>
+        <p class="admin-hero__subtitle">
+          Enable or disable titles to curate the store in seconds.
+        </p>
+      </div>
+      <div class="admin-hero__cta">
+        <button
+          class="create-product-btn py-2 px-3 border-0 outline-0"
+          data-bs-toggle="modal"
+          data-bs-target="#createProductModal"
+        >
+          <span><i class="bi bi-plus"></i></span>
+          Create Product
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive admin-table-wrapper">
+      <table class="table admin-table align-middle">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.title %></td>
+            <td>$<%= Number(product.price).toFixed(2) %></td>
+            <td>
+              <% if (product.isDisabled) { %>
+              <span class="badge badge-warning">Disabled</span>
+              <% } else { %>
+              <span class="badge badge-success">Active</span>
+              <% } %>
+            </td>
+            <td><%= new Date(product.createdAt).toLocaleDateString() %></td>
+            <td>
+              <form
+                method="post"
+                action="/dashboard/admin/products/<%= product._id %>/toggle"
+                data-confirm="Toggle availability for this product?"
+              >
+                <button type="submit">
+                  <%= product.isDisabled ? 'Enable' : 'Disable' %>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div
+    class="modal fade"
+    id="createProductModal"
+    tabindex="-1"
+    aria-labelledby="Create Product"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+    >
+      <form
+        class="create-product-form modal-content create-product-background"
+        action="/dashboard/admin/products/create"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="modal-header">
+          <span class="modal-title create-product-title-header fw-bold"
+            >Create New Product</span
+          >
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="product-title" class="col form-label fw-bold"
+              >Title</label
+            >
+            <input
+              type="text"
+              class="form-control border-0 outline-0"
+              id="product-title"
+              name="product-title"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="product-description" class="col form-label fw-bold"
+              >Description</label
+            >
+            <textarea
+              class="form-control border-0 outline-0"
+              id="product-description"
+              name="product-description"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="product-price" class="col form-label fw-bold"
+                >Price</label
+              >
+              <input
+                type="number"
+                class="form-control border-0 outline-0"
+                id="product-price"
+                name="product-price"
+                value="0"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3">
+              <label for="product-stock" class="col form-label fw-bold"
+                >Stock</label
+              >
+              <input
+                type="number"
+                class="form-control border-0 outline-0"
+                id="product-stock"
+                name="product-stock"
+                value="0"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="product-developer" class="col form-label fw-bold"
+              >Developer</label
+            >
+            <input
+              type="text"
+              class="form-control border-0 outline-0"
+              id="product-developer"
+              name="product-developer"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="product-publisher" class="col form-label fw-bold"
+              >Publisher</label
+            >
+            <input
+              type="text"
+              class="form-control border-0 outline-0"
+              id="product-publisher"
+              name="product-publisher"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="product-release-date" class="col form-label fw-bold"
+              >Release Date</label
+            >
+            <input
+              type="date"
+              class="form-control border-0 outline-0"
+              id="product-release-date"
+              name="product-release-date"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="product-image" class="col form-label fw-bold"
+              >Image</label
+            >
+            <input
+              type="file"
+              class="form-control border-0 outline-0"
+              id="product-image"
+              name="product-image"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="col form-label fw-bold" for="product-categories"
+              >Categories (select one or multiple)</label
+            >
+            <div class="create-product-categories-container">
+              <% categories.forEach(category => { %>
+              <div class="col d-flex flex-row align-items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="cat-<%= category %>"
+                  name="categories"
+                  value="<%= category %>"
+                />
+                <label for="cat-<%= category %>"><%= category %></label>
+              </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex flex-row gap-2">
+          <button
+            type="button"
+            class="close-create-product-btn flex-fill text-center border-0 outline-0 px-3 py-2 text-decoration-none"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            class="submit-create-product-btn flex-fill text-center border-0 outline-0 px-3 py-2 text-decoration-none"
+          >
+            Create Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

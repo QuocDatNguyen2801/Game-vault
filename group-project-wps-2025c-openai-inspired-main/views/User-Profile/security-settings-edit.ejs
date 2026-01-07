@@ -1,0 +1,153 @@
+<div
+  class="container min-vh-100 d-flex align-items-center justify-content-center py-5 my-5"
+>
+  <!-- Full Card -->
+  <div
+    class="card user-card row g-0 flex-column flex-lg-row align-items-stretch"
+  >
+    <!-- Class align-items-stretch quan trọng -->
+    <!-- User Panel: Left Side -->
+    <!-- Use partials, layouts -->
+    <%- include('../partials/user-panel.ejs') %>
+    <!-- Profile Content: Right Side -->
+    <section class="col-lg-9 security-panel">
+      <div class="card-body">
+        <form action="/account/security/edit" method="post">
+          <!-- Username -->
+          <div class="mb-4">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control text-white"
+              id="username"
+              name="username"
+              placeholder="Your username"
+              value="<%= username %>"
+            />
+          </div>
+
+          <!-- Password Section -->
+          <div class="mb-4">
+            <label for="current-password" class="form-label">Password</label>
+            <!-- Current Password -->
+            <div class="password-wrapper mb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="current-password"
+                name="current-password"
+                placeholder="Your current password"
+              />
+              <!-- Hide/Unhide Password Button -->
+              <button
+                class="password-toggle"
+                type="button"
+                id="toggleCurrentPassword"
+              >
+                <i class="bi bi-eye" id="toggleIconCurrent"></i>
+              </button>
+            </div>
+
+            <!-- New Password -->
+            <div class="password-wrapper mb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="new-password"
+                name="new-password"
+                placeholder="Your new password"
+              />
+              <!-- Hide/Unhide Password Button -->
+              <button
+                class="password-toggle"
+                type="button"
+                id="toggleNewPasswordSecurity"
+              >
+                <i class="bi bi-eye" id="toggleIconNewSecurity"></i>
+              </button>
+            </div>
+
+            <!-- Confirm New Password -->
+            <div class="password-wrapper mb-4">
+              <input
+                type="password"
+                class="form-control"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="Confirm your new password"
+              />
+              <!-- Hide/Unhide Password Button -->
+              <button
+                class="password-toggle"
+                type="button"
+                id="toggleConfirmPasswordSecurity"
+              >
+                <i class="bi bi-eye" id="toggleIconConfirmSecurity"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Security Questions and Answers -->
+          <% if (securityQA.length > 0) { %> <% securityQA.forEach(function(qa,
+          index) { %>
+          <!-- Each Security Question -->
+          <div class="mb-4">
+            <label for="question<%= index %>" class="form-label"
+              >Security Question <%= index + 1 %></label
+            >
+            <select
+              name="securityQuestion[]"
+              id="question<%= index %>"
+              class="form-control"
+            >
+              <option value="<%= qa.question %>" selected>
+                <%= qa.question %>
+              </option>
+              <% availableQuestions.forEach(function(q) { %>
+              <option value="<%= q %>"><%= q %></option>
+              <% }) %>
+            </select>
+          </div>
+
+          <!-- Each Security Answer -->
+          <div class="mb-4">
+            <label for="answer<%= index %>" class="form-label"
+              >Security Answer <%= index + 1 %>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="answer<%= index %>"
+              name="securityAnswer[]"
+              placeholder="Enter your new answer"
+              value="<%= qa.answer %>"
+            />
+          </div>
+          <% }) %> <% } %>
+
+          <!-- Error display if any -->
+          <% if (typeof error !== 'undefined') { %>
+          <div class="alert alert-danger error p-2" role="alert">
+            <%= error %>
+          </div>
+          <% } %>    
+                
+          <!-- Save and Discard Buttons -->
+          <div class="d-flex justify-content-end gap-3 mt-5">
+            <a
+              href="/account/security"
+              class="text-decoration-none rounded-3 px-3 py-2 discard-btn"
+              >Discard</a
+            >
+            <button
+              type="submit"
+              class="text-decoration-none rounded-3 px-3 py-2 save-btn"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</div>

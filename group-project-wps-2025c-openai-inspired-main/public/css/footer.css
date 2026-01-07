@@ -1,0 +1,32 @@
+@import url("variables.css");
+
+/* Footer */
+.footer-background {
+    background-color: var(--footer-background);
+}
+
+.muted {
+    color: var(--muted-foreground);
+}
+
+.footer-title {
+    color: var(--foreground);
+}
+
+.list-shortcut {
+    list-style: none;
+}
+
+.list-shortcut li a {
+    text-decoration: none;
+    color: var(--muted-foreground);
+    transition: color 0.3s ease;
+}
+
+.list-shortcut li a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    color: var(--muted-foreground);
+}

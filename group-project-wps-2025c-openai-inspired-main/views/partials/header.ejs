@@ -1,0 +1,5 @@
+<% if (!currentUser) { %>
+    <%- include('./header_guest') %>
+<% } else { %>
+    <%- include('./header_admin') %>
+<% } %> 

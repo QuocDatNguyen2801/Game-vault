@@ -1,0 +1,55 @@
+<!-- Main Container: Full viewport height, centered content -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+  <!-- Sign Up Card -->
+  <div class="card login-card">
+    <a href="/" class="icon-wrapper text-center mt-3">
+      <i class="bi bi-controller controller"></i>
+    </a>
+
+    <div class="card-body mt-0 py-0">
+      <!-- Header Section: Title and subtitle -->
+      <div class="text-center mb-4 py-0">
+        <h1 class="bold card-title mb-2 mt-0 text-white">
+          Security Questions
+        </h1>
+        <p class="card-subtitle text-white">
+          Add and answer your security questions for account recovery
+        </p>
+      </div>
+
+      <!-- Tab Content: Forms -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Security Form -->
+        <div class="tab-pane fade show active" id="security" role="tabpanel">
+          <form action="/user/signup/security" method="post">
+            <!-- Question dropdown -->
+            <div class="mb-3">
+              <label for="question" class="form-label">Your question</label>
+              <div class="input-group">
+                <select class="form-select" id="question" name="question" required>
+                  <option value="" disabled selected>Select a security question</option>
+                  <% availableQuestions.forEach(question => { %>
+                    <option value="<%= question %>"><%= question %></option>
+                  <% }); %>
+                </select>
+              </div>
+            </div>
+
+            <!-- Answer -->
+            <div class="mb-5">
+              <label for="answer" class="form-label">Your answer</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="answer" name="answer" placeholder="Your answer" required />
+              </div>
+            </div>
+            <!-- Add/Sign Up Buttons -->
+            <div class="d-flex flex-row align-items-center gap-2 signup-security-btn-row mb-3">
+              <button type="submit" class="btn btn-primary mb-3 w-50" name="action" value="add">Add Security Questions</button>
+              <button type="submit" class="btn btn-primary mb-3 w-50" name="action" value="signup">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

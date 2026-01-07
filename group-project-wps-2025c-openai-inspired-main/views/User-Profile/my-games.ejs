@@ -1,0 +1,69 @@
+<div
+  class="container min-vh-100 d-flex align-items-center justify-content-center py-5 my-5"
+>
+  <!-- Full Card -->
+  <div
+    class="card user-card row g-0 flex-column flex-lg-row align-items-stretch"
+  >
+    <!-- User Panel: Left Side -->
+    <!-- Use partials, layouts -->
+    <%- include('../partials/user-panel.ejs') %>
+    <!-- My Games Content: Right Side -->
+    <section class="col-lg-9 games-info-panel h-100">
+      <div class="card-body h-100">
+        <!-- Error message if no games -->
+        <% if (games.length === 0) { %>
+        <div
+          class="d-flex flex-column justify-content-center align-items-center h-100"
+        >
+          <p class="text-white-50"><%= error %></p>
+          <a href="/shop/admin" class="btn btn-primary">Go to shop</a>
+        </div>
+
+        <% } else { %>
+        <div class="d-flex flex-column gap-3 h-100">
+          <% games.forEach(game => {%>
+          <a
+            href="/orders?game=<%= encodeURIComponent(game.name) %>"
+            class="text-decoration-none text-reset"
+          >
+            <div class="game-card d-flex align-items-stretch gap-3">
+              <!-- Game Cover Image -->
+              <img
+                src="<%= game.image %>"
+                alt="<%= game.name %>"
+                class="game-card-img"
+              />
+              <!-- Game Info -->
+              <div
+                class="flex-grow-1 d-flex flex-column justify-content-between"
+              >
+                <!-- Top row -->
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h5 class="mb-0 fw-bold"><%= game.name %></h5>
+                    <small class="text-white-50"
+                      >Edition: <%= game.edition %></small
+                    >
+                  </div>
+                  <small>Quantity: <%= game.quantity %></small>
+                </div>
+                <!-- Bottom Row -->
+                <small class="text-white-50"
+                  >Paid on <%= game.paidDate %></small
+                >
+              </div>
+            </div>
+          </a>
+          <% }); %>
+          <div
+            class="d-flex flex-column justify-content-center align-items-center mt-auto pt-2"
+          >
+            <a href="/orders" class="btn btn-primary">All my orders</a>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

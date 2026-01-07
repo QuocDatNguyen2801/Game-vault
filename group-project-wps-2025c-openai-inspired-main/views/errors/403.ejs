@@ -1,0 +1,26 @@
+<!-- Reuse admin dashboard styling so the page matches the protected area -->
+<link rel="stylesheet" href="/css/admin-dashboard.css" />
+
+<main class="container-fluid admin-shell">
+  <section class="admin-card admin-card--narrow">
+    <div class="admin-card__header">
+      <div>
+        <p class="admin-eyebrow">Access</p>
+        <h1 class="admin-section-title" style="font-size: 2rem">
+          Access Denied
+        </h1>
+        <p class="admin-hero__subtitle">
+          You do not have permission to view this page.
+        </p>
+      </div>
+    </div>
+    <p style="color: var(--admin-muted); margin-bottom: 1.5rem">
+      If you believe this is an error, please sign in with an admin account or
+      return to the home page.
+    </p>
+    <div class="admin-hero__cta">
+      <a class="btn admin-btn" href="/user/signin">Sign in</a>
+      <a class="btn admin-btn ghost" href="/">Go home</a>
+    </div>
+  </section>
+</main>

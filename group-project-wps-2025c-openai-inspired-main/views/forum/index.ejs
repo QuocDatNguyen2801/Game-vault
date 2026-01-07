@@ -1,0 +1,255 @@
+<!-- MAIN FORUM CONTENT -->
+<div class="forum-content pt-5">
+  <div class="container pt-5">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/forum" class="text-decoration-none text-light">Forum</a></li>
+        </ol>
+    </nav>
+    <!-- FORUM HEADER -->
+    <div class="forum-header">
+      <div
+        class="d-flex flex-md-row flex-column justify-content-md-between align-items-md-start justify-content-center gap-md-0 gap-3 w-100"
+      >
+        <div>
+          <h1 class="text-gradient mb-1">Discussion Forum</h1>
+          <p class="text-muted mb-0">Connect with gamers worldwide</p>
+        </div>
+        <button
+          id="createThreadBtn"
+          data-bs-toggle="modal"
+          data-bs-target="#createModal"
+          data-requires-auth="true"
+        >
+          Create Thread
+        </button>
+      </div>
+    </div>
+
+    <!-- SEARCH + SORT -->
+    <div
+      class="row mt-5 d-flex flex-md-row flex-column gap-md-0 gap-3 align-items-center justify-content-center"
+    >
+      <div class="col-md-9 col">
+        <div
+          class="forum-search search-container position-relative d-flex align-items-center"
+        >
+          <span class="search-icon position-absolute">
+            <i class="bi bi-search"></i>
+          </span>
+          <input
+            type="text"
+            id="searchBar"
+            placeholder="Search threads..."
+            class="forum-search input-search w-100 p-2 ps-5"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-3 col">
+        <div class="forum-dropdown dropdown">
+          <button
+            class="forum-dropdown dropdown-toggle w-100 text-start customize-search-filter p-2"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="forumSortDropdown"
+          >
+            <span id="selectedSortOption">Newest First</span>
+          </button>
+
+          <ul
+            class="forum-dropdown dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute"
+          >
+            <li>
+              <a
+                class="forum-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="#"
+                data-value="Newest First"
+              >
+                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                Newest First
+              </a>
+            </li>
+            <li>
+              <a
+                class="forum-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="#"
+                data-value="Oldest First"
+              >
+                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                Oldest First
+              </a>
+            </li>
+            <li>
+              <a
+                class="forum-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="#"
+                data-value="Most Popular"
+              >
+                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                Most Popular
+              </a>
+            </li>
+            <li>
+              <a
+                class="forum-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="#"
+                data-value="Most Liked"
+              >
+                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                Most Liked
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- THREAD LIST -->
+    <div id="threadList">
+      <% if (threads && threads.length > 0) { %> <% threads.forEach(t => { %>
+      <div
+        class="thread-card"
+        data-thread-id="<%= t._id %>"
+        data-created-at="<%= t.createdAt %>"
+        data-likes="<%= t.likes %>"
+        data-replies="<%= t.replies %>"
+      >
+        <div class="thread-header">
+          <img src="<%= t.avatar %>" class="thread-avatar" alt="Avatar" />
+          <h3 class="thread-title"><%= t.title %></h3>
+        </div>
+        <div class="thread-content"><%= t.content %></div>
+        <div
+          class="thread-footer d-flex justify-content-between align-items-center"
+        >
+          <div class="thread-actions d-flex gap-2">
+            <button
+              class="btn-icon like-btn <%= t.liked ? 'liked' : '' %>"
+              title="Like"
+              data-id="<%= t._id %>"
+              onclick="likeThread('<%= t._id %>', this)"
+
+            >
+              <i
+                class="bi <%= t.liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up' %>"
+              ></i>
+              <span class="like-count"> <%= t.likes %> </span>
+            </button>
+
+            <% if (currentUserId && String(t.userId) === String(currentUserId))
+            { %>
+            <button
+              class="btn-icon delete-btn"
+              title="Delete thread"
+              data-id="<%= t._id %>"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+            <% } %>
+          </div>
+          <div class="thread-meta">
+            <span class="author">By <%= t.author %></span>
+            <span class="replies clickable" data-thread-id="<%= t._id %>">
+              <%= t.replies %> <%= t.replies === 1 ? "Reply" : "Replies" %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <% }) %> <% } else { %>
+      <p class="text-center text-muted py-5">No threads yet. Be the first!</p>
+      <% } %>
+      <p
+        id="noResultsMessage"
+        class="text-center text-muted py-5"
+        style="display: none"
+      >
+        No threads found.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE THREAD MODAL -->
+<div class="modal fade" id="createModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <form class="modal-content" action="/forum/create" method="POST">
+      <div class="modal-header">
+        <h5 class="modal-title">Create New Thread</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body new-thread-container">
+        <input
+          name="title"
+          class="form-control mb-3"
+          placeholder="Title"
+          required
+        />
+        <textarea
+          name="content"
+          class="form-control"
+          rows="5"
+          placeholder="Write your post..."
+          required
+        ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Post Thread</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- REPLIES MODAL -->
+<div id="repliesOverlay" class="replies-overlay">
+  <div class="replies-modal">
+    <div class="modal-header">
+      <button id="closeModal" class="btn-close"></button>
+    </div>
+    <div class="modal-body">
+      <div id="modalThread" class="thread-full mb-5">
+        <div class="d-flex align-items-start gap-3">
+          <img id="modalAvatar" src="" class="thread-avatar" alt="Avatar" />
+          <div class="flex-grow-1">
+            <h3 id="modalTitle" class="h4 mb-1"></h3>
+            <p id="modalAuthor" class="text-muted small mb-2"></p>
+            <p id="modalContent" class="mb-0"></p>
+          </div>
+        </div>
+      </div>
+      <div id="repliesList" class="replies-list"></div>
+      <div class="reply-box mt-5">
+        <textarea
+          id="replyInput"
+          class="form-control"
+          rows="3"
+          placeholder="Write a reply..."
+        ></textarea>
+        <div class="d-flex justify-content-end mt-4">
+          <button id="postReply" class="btn btn-cyan">Post Reply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const IS_SIGNED_IN = <%= isSignedIn ? 'true' : 'false' %>;
+  (function () {
+    const btn = document.getElementById('createThreadBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      if (!IS_SIGNED_IN) {
+        e.preventDefault();
+        window.location.href = '/user/signin?next=/forum';
+      }
+    });
+  })();
+</script>

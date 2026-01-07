@@ -1,0 +1,408 @@
+[
+  {
+    "_id": "1765206892207936",
+    "userId": "656512345678901234567890",
+    "items": [
+      {
+        "productId": "1765206352546",
+        "title": "test",
+        "price": 60,
+        "edition": "Deluxe",
+        "quantity": 3,
+        "image": "/uploads/create-product-image-1765206352532-.jpeg"
+      },
+      {
+        "productId": "122",
+        "title": "NBA 2K24",
+        "price": 69.99000000000001,
+        "edition": "Deluxe",
+        "quantity": 6,
+        "image": "https://i.ytimg.com/vi/QfkU3raJy2c/maxresdefault.jpg"
+      },
+      {
+        "productId": "123",
+        "title": "Portal 2",
+        "price": 9.99,
+        "edition": "Standard",
+        "quantity": 2,
+        "image": "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_5_638400418436771938_portal-2-tua-game-phieu-luu-trong-the-gioi-hau-tan-the-cuc-cuon-danh-cho-pc-6.jpg"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234567890123456",
+      "cardName": "John Doe",
+      "expiryDate": "09/2027",
+      "cvv": "123"
+    },
+    "shippingDetails": {
+      "address": "123 Main Street",
+      "city": "New York",
+      "zip": "10001",
+      "country": "America"
+    },
+    "totals": {
+      "subtotal": 619.92,
+      "tax": 61.99,
+      "total": 681.91
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-08T15:14:52.208Z",
+    "updatedAt": "2025-12-08T15:14:52.208Z"
+  },
+  {
+    "_id": "1765986436238973",
+    "userId": 14,
+    "items": [
+      {
+        "productId": "101",
+        "title": "Cyberpunk 2077",
+        "price": 49.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://gaming-cdn.com/images/products/14769/616x353/cyberpunk-2077-ultimate-edition-ultimate-edition-pc-game-gog-com-cover.jpg?v=1748447646"
+      },
+      {
+        "productId": "102",
+        "title": "Elden Ring",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_616x353.jpg?t=1748630546"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234123412341234",
+      "cardName": "Charles",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 109.98,
+      "tax": 11,
+      "total": 120.98
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-17T15:47:16.238Z",
+    "updatedAt": "2025-12-17T15:47:16.238Z"
+  },
+  {
+    "_id": "1765986537810363",
+    "userId": 14,
+    "items": [
+      {
+        "productId": "106",
+        "title": "Grand Theft Auto V",
+        "price": 29.99,
+        "edition": "Standard",
+        "quantity": 2,
+        "image": "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/10/cach-tai-gta-5-tren-pc-thumbnail.jpg"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234123412341234",
+      "cardName": "Charles",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 59.98,
+      "tax": 6,
+      "total": 65.98
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-17T15:48:57.810Z",
+    "updatedAt": "2025-12-17T15:48:57.810Z"
+  },
+  {
+    "_id": "1765987787272830",
+    "userId": 1,
+    "items": [
+      {
+        "productId": "104",
+        "title": "The Witcher 3",
+        "price": 39.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheWitcher3WildHuntCompleteEdition_enGB_image1600w.jpg"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234123412341234",
+      "cardName": "Alice",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 39.99,
+      "tax": 4,
+      "total": 43.99
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-17T16:09:47.272Z",
+    "updatedAt": "2025-12-17T16:09:47.272Z"
+  },
+  {
+    "_id": "1765988259539278",
+    "userId": 1,
+    "items": [
+      {
+        "productId": "108",
+        "title": "Assassin's Creed Valhalla",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "123412341234",
+      "cardName": "Alice",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 59.99,
+      "tax": 6,
+      "total": 65.99
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-17T16:17:39.539Z",
+    "updatedAt": "2025-12-17T16:17:39.539Z"
+  },
+  {
+    "_id": "1765988443062508",
+    "userId": 1,
+    "items": [
+      {
+        "productId": "107",
+        "title": "Marvel's Spider-Man Remastered",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://i.ytimg.com/vi/1E051WtpyWg/maxresdefault.jpg"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234123412341234",
+      "cardName": "Alice",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 59.99,
+      "tax": 6,
+      "total": 65.99
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-17T16:20:43.062Z",
+    "updatedAt": "2025-12-17T16:20:43.062Z"
+  },
+  {
+    "_id": "1765989813267688",
+    "userId": 17,
+    "items": [
+      {
+        "productId": "102",
+        "title": "Elden Ring",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_616x353.jpg?t=1748630546"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234123412341234",
+      "cardName": "Kelly Yu",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 59.99,
+      "tax": 6,
+      "total": 65.99
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-17T16:43:33.267Z",
+    "updatedAt": "2025-12-17T16:43:33.267Z"
+  },
+  {
+    "_id": "1766081162539785",
+    "userId": 14,
+    "items": [
+      {
+        "productId": "101",
+        "title": "Cyberpunk 2077",
+        "price": 49.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://gaming-cdn.com/images/products/14769/616x353/cyberpunk-2077-ultimate-edition-ultimate-edition-pc-game-gog-com-cover.jpg?v=1748447646"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "1234123412341234",
+      "cardName": "Charles",
+      "expiryDate": "02/29",
+      "cvv": "364"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "700000",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 49.99,
+      "tax": 5,
+      "total": 54.99
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-18T18:06:02.539Z",
+    "updatedAt": "2025-12-18T18:06:02.539Z"
+  },
+  {
+    "_id": "176611189665183",
+    "userId": 14,
+    "items": [
+      {
+        "productId": "107",
+        "title": "Marvel's Spider-Man Remastered",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://i.ytimg.com/vi/1E051WtpyWg/maxresdefault.jpg"
+      },
+      {
+        "productId": "101",
+        "title": "Cyberpunk 2077",
+        "price": 49.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://gaming-cdn.com/images/products/14769/616x353/cyberpunk-2077-ultimate-edition-ultimate-edition-pc-game-gog-com-cover.jpg?v=1748447646"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "32",
+      "cardName": "23",
+      "expiryDate": "3",
+      "cvv": "3"
+    },
+    "shippingDetails": {
+      "address": "23",
+      "city": "234",
+      "zip": "123",
+      "country": "4341"
+    },
+    "totals": {
+      "subtotal": 109.98,
+      "tax": 11,
+      "total": 120.98
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-19T02:38:16.651Z",
+    "updatedAt": "2025-12-19T02:38:16.651Z"
+  },
+  {
+    "_id": "1766113467572657",
+    "userId": 14,
+    "items": [
+      {
+        "productId": "102",
+        "title": "Elden Ring",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 2,
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_616x353.jpg?t=1748630546"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "123124",
+      "cardName": "123",
+      "expiryDate": "23",
+      "cvv": "431"
+    },
+    "shippingDetails": {
+      "address": "Home",
+      "city": "Ho Chi Minh",
+      "zip": "5452",
+      "country": "Vietnam"
+    },
+    "totals": {
+      "subtotal": 119.98,
+      "tax": 12,
+      "total": 131.98
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-19T03:04:27.572Z",
+    "updatedAt": "2025-12-19T03:04:27.572Z"
+  },
+  {
+    "_id": "1766153465016208",
+    "userId": 14,
+    "items": [
+      {
+        "productId": "102",
+        "title": "Elden Ring",
+        "price": 59.99,
+        "edition": "Standard",
+        "quantity": 1,
+        "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_616x353.jpg?t=1748630546"
+      }
+    ],
+    "paymentDetails": {
+      "cardNumber": "123",
+      "cardName": "123",
+      "expiryDate": "123",
+      "cvv": "23"
+    },
+    "shippingDetails": {
+      "address": "asfd",
+      "city": "3",
+      "zip": "2",
+      "country": "s"
+    },
+    "totals": {
+      "subtotal": 59.99,
+      "tax": 6,
+      "total": 65.99
+    },
+    "status": "Completed",
+    "createdAt": "2025-12-19T14:11:05.016Z",
+    "updatedAt": "2025-12-19T14:11:05.016Z"
+  }
+]

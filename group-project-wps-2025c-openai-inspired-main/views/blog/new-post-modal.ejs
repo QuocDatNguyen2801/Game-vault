@@ -1,0 +1,81 @@
+<div
+  class="modal fade"
+  id="newPostModal"
+  tabindex="-1"
+  aria-labelledby="newPostModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newPostModalLabel">Create New Blog</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="/blog/create" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="blogTitle" class="form-label">Title:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="blogTitle"
+              name="title"
+              placeholder="Your blog title..."
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="blogImageFile" class="form-label">Upload Image:</label>
+            <input
+              type="file"
+              class="form-control"
+              id="blogImageFile"
+              name="imageFile"
+              accept="image/*"
+            />
+            <div class="form-text">
+              Optional: leave empty to use the URL field below.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="blogImage" class="form-label"
+              >Image URL (optional):</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="blogImage"
+              name="image"
+              placeholder="https://..."
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="blogDescription" class="form-label">Content:</label>
+            <textarea
+              class="form-control"
+              id="blogDescription"
+              name="content"
+              rows="5"
+              placeholder="Your blog content..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

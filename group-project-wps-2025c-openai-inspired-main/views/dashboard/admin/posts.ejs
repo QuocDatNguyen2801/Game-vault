@@ -1,0 +1,59 @@
+<main class="container-fluid admin-shell">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard/admin" class="text-decoration-none text-light">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/dashboard/admin/posts" class="text-decoration-none text-light">Blog Management</a></li>
+        </ol>
+    </nav>
+  <section class="admin-card">
+    <div class="admin-card__header">
+      <div>
+        <p class="admin-eyebrow">Blog</p>
+        <h1 class="admin-section-title">Manage Posts</h1>
+        <p class="admin-hero__subtitle">
+          Quickly hide or spotlight posts to keep content healthy.
+        </p>
+      </div>
+    </div>
+    <div class="table-responsive admin-table-wrapper">
+      <table class="table admin-table align-middle">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% posts.forEach(post => { %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.authorName || post.author || 'Unknown' %></td>
+            <td>
+              <% if (post.isHidden) { %>
+              <span class="badge badge-warning">Hidden</span>
+              <% } else { %>
+              <span class="badge badge-success">Visible</span>
+              <% } %>
+            </td>
+            <td><%= new Date(post.createdAt).toLocaleDateString() %></td>
+            <td>
+              <form
+                method="post"
+                action="/dashboard/admin/posts/<%= post._id %>/toggle"
+                data-confirm="Toggle visibility for this post?"
+              >
+                <button type="submit">
+                  <%= post.isHidden ? 'Unhide' : 'Hide' %>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

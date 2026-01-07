@@ -1,0 +1,57 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <% const pageLocals = typeof locals !== 'undefined' ? locals : {}; %> <% const
+  pageTitle = pageLocals.title || (typeof title !== 'undefined' ? title :
+  'GameVault'); %> <% const pageDescription = pageLocals.description || (typeof
+  description !== 'undefined' ? description : ''); %>
+
+  <title><%= pageTitle %></title>
+  <meta name="description" content="<%= pageDescription %>" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+
+  <!-- Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+
+  <!-- Styles for each page -->
+  <% const safeStyles = (typeof styles !== 'undefined' && styles) ? styles : [];
+  %> <% const pageStyles = Array.isArray(safeStyles) ? safeStyles :
+  [safeStyles]; %> <% pageStyles.forEach(function(style) { %> <%- style %> <% })
+  %>
+
+  <!-- Shop CSS
+    <link rel="stylesheet" href="/css/shopping-cart.css">
+
+    Login CSS
+    <link rel="stylesheet" href="/css/login_signup.css" />
+    
+    Blog CSS
+    <link rel="stylesheet" href="/css/blog.css" />
+
+    Forum CSS
+    <link rel="stylesheet" href="/css/forum.css" />
+
+    Sitemap CSS
+    <link rel="stylesheet" href="/css/sitemap.css" />
+
+    Customer Review CSS
+    <link rel="stylesheet" href="/css/customerReview.css" />
+    <link rel="stylesheet" href="/css/formReview.css" />
+    <link rel="stylesheet" href="/css/full-review.css" /> -->
+</head>

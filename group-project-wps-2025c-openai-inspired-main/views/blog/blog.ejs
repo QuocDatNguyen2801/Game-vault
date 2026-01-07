@@ -1,0 +1,346 @@
+<!-- HEADER DELETED -->
+<div class="my-5">
+  <div class="container-fluid best-week-container">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/blog" class="text-decoration-none text-light">Blog</a></li>
+        </ol>
+    </nav>
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-8">
+        <h1 class="page-title mb-4">Best of the week</h1>
+        <% if (typeof bestOfWeek !== 'undefined' && bestOfWeek) { %>
+        <article class="blog-card-large">
+          <div class="row g-0">
+            <div class="col-md-7">
+              <div
+                class="p-3 p-md-4 d-flex flex-column justify-content-between align-items-stretch h-100"
+              >
+                <div>
+                  <h2 class="h4 mb-1 text-white">
+                    <a
+                      href="/blog/<%= bestOfWeek._id %>"
+                      class="text-decoration-none text-reset"
+                      ><%= bestOfWeek.title %></a
+                    >
+                  </h2>
+                  <div class="meta small mb-3">
+                    <%= bestOfWeek.readMins %> mins read
+                  </div>
+                  <span class="mb-4 content-body text-justify">
+                    <%= (bestOfWeek.content || '').slice(0, 200) %>...
+                  </span>
+                  <a class="read-more" href="/blog/<%= bestOfWeek._id %>"
+                    >Read more</a
+                  >
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-4"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                      class="avatar"
+                      src="<%= bestOfWeek.avatar || '/img/default-avatar.png' %>"
+                      alt="Author avatar"
+                    />
+                    <div>
+                      <div class="fw-semibold text-white p-0 my-0 lh-0">
+                        <%= bestOfWeek.authorName || 'Anonymous' %>
+                      </div>
+                      <div class="meta small">
+                        <%= new Date(bestOfWeek.createdAt).toLocaleString() %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <button
+                      class="btn btn-sm btn-outline-light like-btn btn-like <%= bestOfWeek.liked ? 'is-liked' : 'is-unliked' %>"
+                      data-id="<%= bestOfWeek._id %>"
+                      data-liked="<%= bestOfWeek.liked ? 'true' : 'false' %>"
+                      aria-pressed="<%= bestOfWeek.liked ? 'true' : 'false' %>"
+                    >
+                      <span class="icon lh-0"
+                        ><%= bestOfWeek.liked ? '❤️' : '🤍' %></span
+                      >
+                      <span class="lh-0"
+                        ><%= bestOfWeek.liked ? 'Liked' : 'Like' %></span
+                      >
+                    </button>
+                    <span
+                      class="like-count text-white"
+                      data-id="<%= bestOfWeek._id %>"
+                    >
+                      <%= bestOfWeek.likes %>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="thumb-panel-large">
+                <div class="thumb-grid p-0 cover-image">
+                  <a
+                    href="/blog/<%= bestOfWeek._id %>"
+                    class="text-decoration-none text-reset d-block"
+                  >
+                    <img
+                      src="<%= bestOfWeek.image || '/img/default-placeholder-blog.png' %>"
+                      alt="<%= bestOfWeek.title %>"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <% } else { %>
+        <div class="text-white">No posts yet to select best of the week.</div>
+        <% } %>
+      </div>
+      <div class="col-lg-4">
+        <aside class="sidebar">
+        <h1 class="page-title mb-4">Hot topics</h1>
+          <div class="search-widget mb-4">
+            <i class="bi bi-search search-icon"></i>
+            <input
+              type="text"
+              id="featureSearch"
+              class="form-control"
+              placeholder="Search topic..."
+            />
+          </div>
+
+          <div class="row g-3">
+            <% if (typeof features !== 'undefined' && features.length) { %> <%
+            features.forEach(f => { %>
+            <div class="col-md-6 col-lg-12 mt-4">
+              <a href="/blog/<%= f._id %>" class="feature-card">
+                <img src="<%= f.image || '/img/default-placeholder-blog.png' %>" alt="<%= f.title %>" />
+                <div class="feature-card-body">
+                  <h3 class="h6"><%= f.title %></h3>
+                  <div class="meta small">
+                    By <%= f.authorName || 'Anonymous' %> • <%= f.readMins %>
+                    mins read
+                  </div>
+                </div>
+              </a>
+            </div>
+            <% }) %> <% } %>
+          </div>
+          <div
+            id="noFeaturesMessage"
+            class="col-12 text-center py-3"
+            style="display: none"
+          >
+            <p class="text-muted">No features match your search.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <article>
+      <div class="row g-1">
+        <h1 class="mb-4 page-title mt-4">Blog</h1>
+      </div>
+    </article>
+    <div class="row align-items-stretch justify-content-center mb-4 g-3">
+      <div class="col-lg-7">
+        <div class="search-widget">
+          <i class="bi bi-search search-icon"></i>
+          <input
+            type="text"
+            id="blogSearch"
+            class="form-control"
+            placeholder="Search articles..."
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="blog-dropdown dropdown">
+          <button
+            class="blog-dropdown dropdown-toggle w-100 text-start customize-search-filter p-2"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="blogSortDropdown"
+          >
+            <span id="selectedSortOption">Newest First</span>
+          </button>
+          <ul
+            class="blog-dropdown dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute"
+          >
+            <li>
+              <a
+                class="blog-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="javascript:void(0)"
+                data-value="Newest First"
+                >Newest First</a
+              >
+            </li>
+            <li>
+              <a
+                class="blog-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="javascript:void(0)"
+                data-value="Oldest First"
+                >Oldest First</a
+              >
+            </li>
+            <li>
+              <a
+                class="blog-dropdown dropdown-item p-1 d-flex align-items-center gap-2 rounded-3"
+                href="javascript:void(0)"
+                data-value="Most Liked"
+                >Most Liked</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <button
+          type="button"
+          class="btn btn-primary w-100 h-100 d-flex align-items-center justify-content-center gap-2"
+          id="newPostBtn"
+          data-requires-auth="true"
+          data-bs-toggle="modal"
+          data-bs-target="#newPostModal"
+        >
+          <i class="bi bi-plus-circle"></i> New Post
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row g-4" id="blog-posts-container">
+      <% if (posts && posts.length > 0) { %> <% posts.forEach(post => { %>
+      <div class="col-md-6 col-lg-4">
+        <article
+          class="blog-card"
+          data-post-id="<%= post._id %>"
+          data-created-at="<%= (post.createdAt ? new Date(post.createdAt).getTime() : 0) %>"
+          data-likes="<%= post.likes || 0 %>"
+          data-title="<%- JSON.stringify(post.title || '').slice(1, -1) %>"
+        >
+          <a
+            href="/blog/<%= post._id %>"
+            class="text-decoration-none text-reset d-block"
+          >
+            <div class="blog-card-image">
+              <img
+                src="<%= post.image || '/img/default-placeholder-blog.png' %>"
+                alt="<%= post.title %>"
+              />
+            </div>
+          </a>
+          <div class="blog-card-body">
+            <a
+              href="/blog/<%= post._id %>"
+              class="text-decoration-none text-reset d-block"
+            >
+              <h3 class="blog-card-title"><%= post.title %></h3>
+              <div class="blog-card-meta">
+                By <%= post.authorName || 'Anonymous' %> • <%= post.readMins %>
+                mins read
+              </div>
+            </a>
+            <div class="d-flex align-items-center gap-2 mt-2">
+              <button
+                class="btn-like like-btn btn btn-outline-primary <%= post.liked ? 'is-liked' : 'is-unliked' %>"
+                data-id="<%= post._id %>"
+                data-liked="<%= post.liked ? 'true' : 'false' %>"
+                aria-pressed="<%= post.liked ? 'true' : 'false' %>"
+              >
+                <span class="icon"><%= post.liked ? '❤️' : '🤍' %></span>
+                <span><%= post.liked ? 'Liked' : 'Like' %></span>
+              </button>
+              <span class="like-count" data-id="<%= post._id %>">
+                <%= post.likes || 0 %>
+              </span>
+
+              <% if (isSignedIn && String(post.userId || post.authorId) ===
+              String(currentUserId)) { %>
+              <div class="ms-auto dropdown actions">
+                <button
+                  class="btn btn-icon"
+                  type="button"
+                  id="dropdownMenuButton-<%= post._id %>"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton-<%= post._id %>"
+                >
+                  <li>
+                    <button
+                      class="dropdown-item post-edit-btn"
+                      type="button"
+                      data-id="<%= post._id %>"
+                      data-title="<%- post.title %>"
+                      data-author="<%- post.authorName || '' %>"
+                      data-image="<%- post.image %>"
+                      data-content="<%- JSON.stringify(post.content || '').slice(1, -1) %>"
+                    >
+                      <i class="bi bi-pencil-square"></i> Edit
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item post-delete-btn"
+                      type="button"
+                      data-id="<%= post._id %>"
+                    >
+                      <i class="bi bi-trash"></i> Delete
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <% } %>
+            </div>
+          </div>
+        </article>
+      </div>
+      <% }) %> <% } else { %>
+      <div class="col-12 text-center py-5">
+        <p class="h5">No posts found. Create your first blog post!</p>
+      </div>
+      <% } %>
+      <div
+        id="noResultsMessage"
+        class="col-12 text-center py-5"
+        style="display: none"
+      >
+        <p class="h5">No posts match your search.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('new-post-modal') %> <%- include('edit-post') %>
+
+<script src="/js/Blog/blog-search.js"></script>
+<script src="/js/Blog/blog-sort.js"></script>
+<script src="/js/Blog/like-count.js"></script>
+<script src="/js/Blog/blog-admin.js"></script>
+
+<script>
+  window.IS_SIGNED_IN = <%= isSignedIn ? 'true' : 'false' %>;
+</script>
+
+<script>
+  const IS_SIGNED_IN = <%= isSignedIn ? 'true' : 'false' %>;
+  (function () {
+    const btn = document.getElementById('newPostBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      if (!IS_SIGNED_IN) {
+        e.preventDefault();
+        window.location.href = '/user/signin?next=/blog';
+      }
+    });
+  })();
+</script>

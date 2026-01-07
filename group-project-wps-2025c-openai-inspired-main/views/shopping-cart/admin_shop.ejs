@@ -1,0 +1,416 @@
+<div class="container-fluid shopping-background mt-2 pt-4 pb-5">
+  <div class="container">
+    <nav
+      style="--bs-breadcrumb-divider: url(&#34;data:image/svg + xml,%3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%23ffffff'/%3E%3C/svg%3E&#34;);"
+      aria-label="breadcrumb"
+    >
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/" class="text-decoration-none text-light">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <a href="/shop/admin" class="text-decoration-none text-light">Shop</a>
+        </li>
+      </ol>
+    </nav>
+
+    <div
+      class="d-flex flex-md-row flex-column justify-content-md-between align-items-md-center justify-content-center align-items-start"
+    >
+      <div
+        class="mt-md-0 mt-3 order-md-1 order-2 d-flex flex-column justify-content-center align-items-stretch"
+      >
+        <h1 class="shopping-title fw-bold">Game Store</h1>
+        <p class="muted">
+          Browse our collection of amazing games and discover the latest and
+          greatest titles that every gamer will love.
+        </p>
+      </div>
+
+      <!-- <div
+        class="order-md-2 order-1 d-flex flex-row justify-content-center align-items-center gap-2"
+      >
+        <span class="admin-mode py-2 px-3 fw-bold">
+          <span><i class="bi bi-shield-fill fw-bold"></i></span>
+          Admin Mode
+        </span>
+      </div> -->
+    </div>
+
+    <form action="/shop/admin" method="GET" id="searchForm">
+      <input
+        type="hidden"
+        name="sort"
+        id="sortInput"
+        value="<%= currentSort || '' %>"
+      />
+
+      <div
+        class="row mt-3 d-flex align-items-center justify-content-center gap-md-0 gap-3"
+      >
+        <div class="col-md-9">
+          <div
+            class="search-container position-relative d-flex align-items-center"
+          >
+            <span class="search-icon position-absolute"
+              ><i class="bi bi-search"></i
+            ></span>
+            <input
+              type="text"
+              id="searchGame"
+              name="searchGame"
+              placeholder="Search games..."
+              class="input-search w-100 p-2 ps-5"
+              value="<%= searchTerm ? searchTerm : '' %>"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="dropdown">
+            <button
+              class="dropdown-toggle w-100 text-start customize-search-filter p-2"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              id="searchFilterDropdown"
+            >
+              <span id="selectedSearchFilter">
+                <% if (typeof currentSort !== 'undefined' && currentSort ===
+                'title_desc') { %> Title: Z-A <% } else if (typeof currentSort
+                !== 'undefined' && currentSort === 'price_asc') { %> Price: Low
+                to High <% } else if (typeof currentSort !== 'undefined' &&
+                currentSort === 'price_desc') { %> Price: High to Low <% } else
+                if (typeof currentSort !== 'undefined' && currentSort ===
+                'stock_asc') { %> Quantity: Least in Stock <% } else if (typeof
+                currentSort !== 'undefined' && currentSort === 'stock_desc') {
+                %> Quantity: Most in Stock <% } else { %> Title: A-Z <% } %>
+              </span>
+            </button>
+
+            <ul
+              class="dropdown-menu search-filter-dropdown w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute"
+              aria-labelledby="searchFilterDropdown"
+            >
+              <li>
+                <a
+                  class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden <%= currentSort === 'title_asc' ? 'selected' : '' %>"
+                  href="#"
+                  data-sort="title_asc"
+                  data-value="Title: A-Z"
+                >
+                  <span class="checkmark"><i class="bi bi-check2"></i></span>
+                  Title: A-Z
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden <%= currentSort === 'title_desc' ? 'selected' : '' %>"
+                  href="#"
+                  data-sort="title_desc"
+                  data-value="Title: Z-A"
+                >
+                  <span class="checkmark"><i class="bi bi-check2"></i></span>
+                  Title: Z-A
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden <%= currentSort === 'price_asc' ? 'selected' : '' %>"
+                  href="#"
+                  data-sort="price_asc"
+                  data-value="Price: Low to High"
+                >
+                  <span class="checkmark"><i class="bi bi-check2"></i></span>
+                  Price: Low to High
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden <%= currentSort === 'price_desc' ? 'selected' : '' %>"
+                  href="#"
+                  data-sort="price_desc"
+                  data-value="Price: High to Low"
+                >
+                  <span class="checkmark"><i class="bi bi-check2"></i></span>
+                  Price: High to Low
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden <%= currentSort === 'stock_asc' ? 'selected' : '' %>"
+                  href="#"
+                  data-sort="stock_asc"
+                  data-value="Quantity: Least in Stock"
+                >
+                  <span class="checkmark"><i class="bi bi-check2"></i></span>
+                  Quantity: Least in Stock
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden <%= currentSort === 'stock_desc' ? 'selected' : '' %>"
+                  href="#"
+                  data-sort="stock_desc"
+                  data-value="Quantity: Most in Stock"
+                >
+                  <span class="checkmark"><i class="bi bi-check2"></i></span>
+                  Quantity: Most in Stock
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row mt-4 g-md-3 g-4 row-cols-1 row-cols-md-4">
+      <% if (products && products.length > 0) { %> <% products.forEach(function
+      (product) { %>
+      <div class="col d-flex">
+        <div class="card customize-card overflow-hidden h-100">
+          <a
+            href="/shop/game/<%= product.slug %>"
+            class="img-thumbnail d-block overflow-hidden border-0 p-0"
+          >
+            <img
+              src="<%= product.image %>"
+              class="customize-card-img card-img-top img-fluid d-block w-100"
+              alt="<%= product.title %>"
+            />
+          </a>
+
+          <div class="card-body d-flex flex-column">
+            <a
+              href="/shop/game/<%= product.slug %>"
+              class="card-info text-decoration-none"
+            >
+              <h5 class="card-title fw-bold text-truncate">
+                <%= product.title %>
+              </h5>
+            </a>
+            <p class="card-text muted text-truncate">
+              <%= product.description %>
+            </p>
+            <p
+              class="card-text muted d-flex align-items-center justify-content-start gap-3 flex-shrink-0"
+            >
+              <span class="star-collections">
+                <% for (let i = 1; i <= 5; i++) { %> <% if (i <=
+                Math.round(product.rating)) { %>
+                <span><i class="bi bi-star-fill star-color"></i></span>
+                <% } else { %>
+                <span><i class="bi bi-star"></i></span>
+                <% } %> <% } %>
+              </span>
+
+              <span class="muted ratings-gamevault"
+                >(<%= product.rating %>)</span
+              >
+            </p>
+
+            <div
+              class="d-flex flex-row align-items-center justify-content-start gap-2 flex-wrap flex-shrink-0 overflow-hidden"
+            >
+              <% product.categories.forEach(function (category) { %>
+              <a
+                href="/categories/<%= category %>"
+                class="category rounded-5 px-2 py-1 text-decoration-none mb-2 mt-0 align-self-start w-auto"
+                ><%= category %></a
+              >
+              <% }) %>
+            </div>
+
+            <div
+              class="stock-price-container d-flex flex-row align-items-center justify-content-between"
+            >
+              <span class="price fs-3 fw-bold">
+                $<span
+                  class="livePrice"
+                  data-base-price="<%= product.price.toFixed(2) %>"
+                  ><%= product.price.toFixed(2) %></span
+                >
+              </span>
+              <span class="muted stock">Stock: <%= product.stock %></span>
+            </div>
+
+            <form
+              action="/cart/add/<%= product._id %>"
+              method="POST"
+              class="d-flex flex-column gap-3 mt-4"
+            >
+              <div>
+                <label for="edition" class="form-label fw-bold mb-1"
+                  >Edition</label
+                >
+                <input
+                  type="hidden"
+                  name="edition"
+                  class="edition-input"
+                  value="Standard"
+                />
+
+                <div class="dropdown">
+                  <button
+                    class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    id="editionDropdown"
+                  >
+                    <span id="selectedEdition" class="selected-edition-text"
+                      >Standard</span
+                    >
+                  </button>
+
+                  <ul
+                    class="dropdown-menu edition-dropdown w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute"
+                    aria-labelledby="editionDropdown"
+                  >
+                    <li>
+                      <a
+                        class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden"
+                        href="#"
+                        data-value="Standard"
+                      >
+                        <span class="checkmark"
+                          ><i class="bi bi-check2"></i
+                        ></span>
+                        Standard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden"
+                        href="#"
+                        data-value="Deluxe"
+                      >
+                        <span class="checkmark"
+                          ><i class="bi bi-check2"></i
+                        ></span>
+                        Deluxe
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden"
+                        href="#"
+                        data-value="Ultimate"
+                      >
+                        <span class="checkmark"
+                          ><i class="bi bi-check2"></i
+                        ></span>
+                        Ultimate
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="quantity-input-container">
+                <label
+                  for="quantity-<%= product._id %>"
+                  class="form-label fw-bold mb-1"
+                  >Quantity</label
+                >
+                <input
+                  type="number"
+                  class="form-control border-0 outline-0 mt-0 p-2 ps-3"
+                  name="quantity"
+                  id="quantity-<%= product._id %>"
+                  min="1"
+                  value="1"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="btn mx-auto text-center add-to-cart-btn w-100 d-flex align-items-center justify-content-center gap-2 mt-3 rounded-3 py-2"
+              >
+                <span><i class="bi bi-cart"></i></span>
+                Add to Cart
+              </button>
+            </form>
+          </div>
+
+          <div
+            class="card-footer border-0 my-2 d-block w-100 d-flex flex-row justify-content-center align-items-center gap-3"
+          ></div>
+        </div>
+      </div>
+      <% }) %> <% } else { %>
+      <p class="text-start fs-5 no-product-msg">No products found.</p>
+      <% } %>
+    </div>
+
+    <div class="row">
+      <% if(products && products.length > 0) { %>
+      <nav aria-label="Page navigation">
+        <ul
+          class="pagination justify-content-center align-items-center gap-0 mt-5"
+        >
+          <% if(current == 1) { %>
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <% } else { %>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="/shop/admin/?page=1<%= searchTerm ? '&searchGame=' + searchTerm : '' %><%= currentSort ? '&sort=' + currentSort : '' %>"
+              >First</a
+            >
+          </li>
+          <% } %> <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+          <% if (i !== 1 ) { %>
+          <li class="page-item"><a class="page-link" href="#">...</a></li>
+          <% } %> <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+          <% if(i == current ) { %>
+          <li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
+          <% } else { %>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="/shop/admin/?page=<%= i %><%= searchTerm ? '&searchGame=' + searchTerm : '' %><%= currentSort ? '&sort=' + currentSort : '' %>"
+              ><%= i %></a
+            >
+          </li>
+          <% } %> <% if(i == Number(current) + 4 && i < pages) { %>
+          <li class="page-item"><a class="page-link" href="#">...</a></li>
+          <% } %> <% } %> <% if (current == pages) { %>
+          <li class="page-item disabled"><a class="page-link">Last</a></li>
+          <% } else { %>
+          <li class="page-item">
+            <a
+              href="/shop/admin/?page=<%= pages %><%= searchTerm ? '&searchGame=' + searchTerm : '' %><%= currentSort ? '&sort=' + currentSort : '' %>"
+              class="page-link"
+              >Last</a
+            >
+          </li>
+          <% } %>
+        </ul>
+      </nav>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownItems = document.querySelectorAll(
+      ".search-filter-dropdown a[data-sort]"
+    );
+    const sortInput = document.getElementById("sortInput");
+    const searchForm = document.getElementById("searchForm");
+
+    dropdownItems.forEach((item) => {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        const sortValue = this.getAttribute("data-sort");
+        sortInput.value = sortValue;
+        searchForm.submit();
+      });
+    });
+  });
+</script>

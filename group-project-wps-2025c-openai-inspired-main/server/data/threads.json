@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "userId": "65a10c1b9f1a2c001234abcd",
+    "title": "How Many Updates Is Too Many for Live Service?",
+    "slug": "how-many-updates-is-too-many",
+    "author": "community-lead",
+    "content": "We plan to ship seasonal drops plus monthly balance passes. From your perspective, what cadence feels healthy before fatigue sets in?",
+    "avatar": "/img/default-avatar.png",
+    "replies": 4,
+    "likes": 3,
+    "likedBy": ["user-design-03", "user-analytics-11", "user-support-05"],
+    "createdAt": "2025-12-19T12:15:00.000Z"
+  },
+  {
+    "id": 2,
+    "userId": "65a10c1b9f1a2c009876abcd",
+    "title": "Co-op Difficulty Scaling — What Works Best?",
+    "slug": "co-op-difficulty-scaling",
+    "author": "gameplay-pm",
+    "content": "We’re testing encounter scaling by party skill, not just size. Would you prefer smarter AI, more mechanics, or straightforward stat bumps?",
+    "avatar": "/img/default-avatar.png",
+    "replies": 5,
+    "likes": 2,
+    "likedBy": ["user-ops-01", "user-ux-07"],
+    "createdAt": "2025-12-19T12:25:00.000Z"
+  },
+  {
+    "id": 3,
+    "userId": "65a10c1b9f1a2c00abcddcba",
+    "title": "Preferred Anti-Cheat Signals to Show Players",
+    "slug": "preferred-anti-cheat-signals",
+    "author": "player-safety",
+    "content": "We already act on server-side detections. Would visible ban waves, post-match flags, or periodic integrity reports build the most trust?",
+    "avatar": "/img/default-avatar.png",
+    "replies": 6,
+    "likes": 4,
+    "likedBy": [
+      "user-community-02",
+      "user-support-05",
+      "user-design-03",
+      "user-platform-04"
+    ],
+    "createdAt": "2025-12-19T12:35:00.000Z"
+  },
+  {
+    "id": 4,
+    "userId": "65a10c1b9f1a2c00fedcba98",
+    "title": "Season Pass: Cosmetics-Only or Light Boosts?",
+    "slug": "season-pass-cosmetic-vs-boost",
+    "author": "monetization",
+    "content": "We’re debating a cosmetics-only pass versus adding small XP boosts. What keeps the pass fair while funding new content?",
+    "avatar": "/img/default-avatar.png",
+    "replies": 5,
+    "likes": 1,
+    "likedBy": ["user-analytics-11"],
+    "createdAt": "2025-12-19T12:45:00.000Z"
+  },
+  {
+    "id": 5,
+    "userId": "65a10c1b9f1a2c0011aa22bb",
+    "title": "Controller vs KB/M Balance for Competitive Modes",
+    "slug": "controller-vs-kbm-balance",
+    "author": "input-systems",
+    "content": "We’re iterating on aim assist curves and recoil patterns. What feels fair in mixed-input lobbies without fragmenting queues?",
+    "avatar": "/img/default-avatar.png",
+    "replies": 4,
+    "likes": 2,
+    "likedBy": ["user-ops-01", "user-design-03"],
+    "createdAt": "2025-12-19T12:55:00.000Z"
+  }
+]

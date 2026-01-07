@@ -1,0 +1,108 @@
+<!-- Main Container: Full viewport height, centered content -->
+<div
+  class="container-fluid min-vh-100 d-flex align-items-center justify-content-center"
+>
+  <!-- Login Card: The whole box with logo -->
+  <div class="card login-card">
+    <a href="/" class="text-center mt-3">
+      <i class="bi bi-controller controller"></i>
+    </a>
+
+    <div class="card-body mt-0 py-0">
+      <!-- Header Section: Title and subtitle -->
+      <div class="text-center mb-4 py-0">
+        <h1 class="card-title mb-2 mt-0 text-white">Welcome to GameVault</h1>
+        <p class="card-subtitle text-white">
+          Sign in or create an account for better experience
+        </p>
+      </div>
+
+      <!-- Tab Navigation: Sign In / Sign Up switcher -->
+      <ul class="nav nav-customize nav-fill mb-4" id="authTabs" role="tablist">
+        <!-- Sign In button -->
+        <li class="nav-item py-0" role="presentation">
+          <a class="nav-link active" href="/user/signin"> Sign In </a>
+        </li>
+        <!-- Sign Up button -->
+        <li class="nav-item py-0" role="presentation">
+          <a class="nav-link nav-link-customize" href="/user/signup"> Sign Up </a>
+        </li>
+      </ul>
+
+      <!-- Tab Content: Forms -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Sign In Form -->
+        <div class="tab-pane fade show active" id="signin" role="tabpanel">
+          <form action="/user/signin<%= next ? '?next=' + encodeURIComponent(next) : '' %>" method="post">
+            <input type="hidden" name="next" value="<%= next || '' %>" />
+            <!-- Email Input -->
+            <div class="mb-3">
+              <label for="signinEmail" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signinEmail"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="mb-2">
+              <label for="signinPassword" class="form-label">Password</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </span>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signinPassword"
+                  name="password"
+                  placeholder="Your password"
+                  required
+                />
+                <!-- Hide/Unhide Password Button -->
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="toggleSigninPassword"
+                >
+                  <i class="bi bi-eye" id="toggleSigninIcon"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Forgot Password Link -->
+            <div class="text-end mb-3">
+              <a
+                href="/user/signin/retrieval-check"
+                class="text-decoration-none small"
+                >Forgot password?
+              </a>
+            </div>
+
+            <!-- Display error message if any -->
+            <% if (typeof error !== 'undefined') { %>
+            <div class="alert alert-danger error p-2" role="alert">
+              <%= error %>
+            </div>
+            <% } %>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mb-3 w-100">
+              <!--FIX ME: REDIRECT TO HOMEPAGE AFTER MERGING-->
+              Sign In
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

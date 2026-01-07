@@ -1,0 +1,67 @@
+<main class="container-fluid admin-shell vh-100">
+  <section class="admin-hero">
+    <div class="admin-hero__copy">
+      <p class="admin-eyebrow">Control Center</p>
+      <h1 class="admin-hero__title">Admin Dashboard</h1>
+      <p class="admin-hero__subtitle">
+        Stay on top of users, content, and catalog health in one clean view.
+      </p>
+      <div class="admin-hero__cta">
+        <a class="btn admin-btn" href="/dashboard/admin/users"
+          ><i class="bi bi-people"></i> Manage Users</a
+        >
+        <a class="btn admin-btn ghost" href="/shop/admin"
+          ><i class="bi bi-bag"></i> Shop Admin</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-card">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number"><%= stats.userCount %></div>
+        <div class="stat-label">Total Users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><%= stats.postCount %></div>
+        <div class="stat-label">Blog Posts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><%= stats.threadCount %></div>
+        <div class="stat-label">Forum Threads</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><%= stats.productCount %></div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-number"><%= stats.lockedUsers %></div>
+        <div class="stat-label">Locked Accounts</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-card">
+    <div class="admin-card__header">
+      <div>
+        <p class="admin-eyebrow">Quick Actions</p>
+        <h2 class="admin-section-title">Jump into management</h2>
+      </div>
+    </div>
+    <div class="actions-grid">
+      <a class="action" href="/dashboard/admin/users"
+        ><i class="bi bi-person-gear"></i> Users</a
+      >
+      <a class="action" href="/dashboard/admin/posts"
+        ><i class="bi bi-journal-richtext"></i> Posts</a
+      >
+      <a class="action" href="/dashboard/admin/threads"
+        ><i class="bi bi-chat-dots"></i> Threads</a
+      >
+      <a class="action" href="/dashboard/admin/products"
+        ><i class="bi bi-bag-check"></i> Products</a
+      >
+    </div>
+  </section>
+</main>

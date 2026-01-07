@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "username": "alice",
+    "email": "alice@example.com",
+    "password": "$2b$10$LfE2TZQ2uvzwryAlnkETdurb1hAW8U3gH3hGMdD4SDKmKxvfn71RK",
+    "createdAt": "2025-12-12T10:00:00Z",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$sd663Ua3qfjYCX1nKaxq2OkYxwSyuJlh8HpkuWjzwKBchBwhlUhjK"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "username": "charlesphan0206",
+    "email": "phanbakhang2006@example.com",
+    "password": "$2b$10$7GA1N/p0tqhz2E/KbTLv3eb.4XixAjqgnB8/2SVUxMvyiyvMZTdti",
+    "createdAt": "2025-12-12T10:00:00Z",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$YMnGncU1BOOvmyMKKS4RPOU3i8zvsHq5s397RllgkM0rfsgFPsfWG"
+      },
+      {
+        "question": "What is your mother's first name?",
+        "answer": "$2b$10$57JEBFueU8hRRYgs/tzmEuq.PXwjQTMPLjCixz6t9sbXEvrqfQ8EO"
+      },
+      {
+        "question": "What was the name of your first pet?",
+        "answer": "$2b$10$nZBoAC8qoGnxH3m96VFb0uUYqo3mWfFb6v121ntUuDH6pGviAmqiS"
+      },
+      {
+        "question": "What city were you born in?",
+        "answer": "$2b$10$cUU5D3NEQgncoBLH615f1.mDCDOAeA.pr4IO7cXbx21udtxD0Li3m"
+      },
+      {
+        "question": "What is your favorite food?",
+        "answer": "$2b$10$V8ORjbx1omaYwPY3dl9ogOX5OudwG4zecFUSYQKPH4TyqV.uOE0qy"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "username": "jimmytrung",
+    "email": "test1@example.com",
+    "password": "$2b$10$0iMypQaXzBZeVvF2VhE2FunaoA5EWyuClbeA5V5DC2vGArT14cyO6",
+    "createdAt": "2025-12-12T10:00:00Z",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$e48SHjUReSFU/Mxgoh.CU.zDkDNZ8TS1Tek9gfoVYVrXeaxCmvYqe"
+      },
+      {
+        "question": "What is your favorite food?",
+        "answer": "$2b$10$Azy4yq99/n11CfczzChn.OPwG7TOTD6eSxjzXBW0PRbKWxSmYLKCK"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "username": "bcrypt",
+    "email": "bcrypt@test.com",
+    "password": "$2b$10$9l4wIfPtKRLa6Ht0PGKhsuqwX1wqxFwhYSyLbBJvbIBIpCN00b1rG",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$0HDBYy1PNhgCbMspqBZqjOQVUTBbJEg4iDpfau3zJ6oAmZZ1Ah/R2"
+      }
+    ],
+    "createdAt": "2025-12-16T14:48:31.455Z"
+  },
+  {
+    "id": 17,
+    "username": "kellyyu",
+    "email": "kelly@test.com",
+    "password": "$2b$10$40kJ.F6k./t5cm1F3a4naed1nJ/8al/1eEMkVRoMHmJEvR8ZlVyx2",
+    "securityQA": [],
+    "createdAt": "2025-12-17T13:50:26.489Z"
+  },
+  {
+    "id": 18,
+    "username": "yangkun",
+    "email": "yangkun@test.com",
+    "password": "$2b$10$P06ef0VFW3n0LXwEBNw/aeg0NEvPDhCnKd4T5F5WRosopOF7wjoKq",
+    "securityQA": [],
+    "createdAt": "2025-12-17T13:55:15.968Z"
+  },
+  {
+    "id": 19,
+    "username": "zhangrounan",
+    "email": "zhangrounan@test.com",
+    "password": "$2b$10$F.toxc/msTpuhjIQbNQBe.e6RG1KWXtOJah04oZKqBGHRonASGlnm",
+    "securityQA": [],
+    "createdAt": "2025-12-17T13:59:38.118Z"
+  },
+  {
+    "id": 20,
+<<<<<<< HEAD
+    "username": "quocdat",
+    "email": "quocdatnguyencong@gmail.com",
+    "password": "$2b$10$TXPQCgwUUsbhVGJ0ADdguezTruXDlrHgZiPvZ1bbnF8RghQcOQYNK",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$6bJ8ZdIU70BsvfQxxakMs.auWBMCSZtq7MPqfmyaOneGnJqTIsiiS"
+      }
+    ],
+    "createdAt": "2025-12-19T02:10:11.958Z"
+=======
+    "username": "wangle",
+    "email": "wangle@example.com",
+    "password": "$2b$10$0t.F9wxcuyZmsd.QclxYLOpflpKo9f0bOU.1gnjzjqSR90dq7.3qG",
+    "securityQA": [
+      {
+        "question": "What is your favorite food?",
+        "answer": "$2b$10$JrnmLwz6esznni108QS3Zu7O4wprxhDk.spp5B6MGeKOcFu3fnJRS"
+      }
+    ],
+    "createdAt": "2025-12-19T11:04:49.453Z"
+  },
+  {
+    "id": 21,
+<<<<<<< HEAD
+    "username": "gaga123",
+    "email": "hungtu566@gmail.com",
+    "password": "$2b$10$1LhI2CohfcYE1sTswnO1a.RqDNXUf35yWU2d5qwX45Lp4C74Cyph.",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$H1DWDE747hDOZhrnNZi2oeydXOP.sazTHoCduWW/6.vfCJ9dt9KV6"
+      }
+    ],
+    "createdAt": "2025-12-29T18:50:47.291Z"
+  },
+  {
+    "id": 22,
+    "username": "quocdat",
+    "email": "quocdatnguyencong@gmail.com",
+    "password": "$2b$10$BJx0vUhQhKHy5FrBl6PDxOM0w4XZKwfICdyEkQbG5G9LELieGKBhO",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$A9GB9Trqd6mtMKEB8Uacn.bUB/Dr.e6NWr.Uwot6mgcJRDknvq4Ye"
+      }
+    ],
+    "createdAt": "2025-12-31T16:31:05.981Z"
+=======
+    "username": "quocdat",
+    "email": "quocdatnguyencong@gmail.com",
+    "password": "$2b$10$.UvDKBrbWlH9xC5H2S4gMuDhD7s5oBMGWwUKu7x79sUZaw7VOSqA2",
+    "securityQA": [
+      {
+        "question": "What is your favorite color?",
+        "answer": "$2b$10$YXmu.sTMCOB/DIX6JABWCeo4b9deNJVt2aAVMTTp5ismd.8W6Mn0e"
+      },
+      {
+        "question": "What is your favorite food?",
+        "answer": "$2b$10$JXpQN7Q9kt93SdxQYWf5S.l3LI7kH6zFVUcB0CrSH4oAeYPsmewP."
+      }
+    ],
+    "createdAt": "2026-01-02T02:12:10.012Z"
+>>>>>>> 7703fc3 (Enhance blog detail page with new layout, styling, and content normalization; add new posts and user profiles to data files)
+>>>>>>> 86d492f94e63826c06afa10f85bca4ef3b5f443b
+  }
+]

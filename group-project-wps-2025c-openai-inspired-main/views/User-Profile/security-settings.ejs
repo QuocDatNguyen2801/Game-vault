@@ -1,0 +1,207 @@
+<div
+  class="container min-vh-100 d-flex align-items-center justify-content-center py-5 my-5"
+>
+  <!-- Full Card -->
+  <div
+    class="card user-card row g-0 flex-column flex-lg-row align-items-stretch"
+  >
+    <!-- Class align-items-stretch quan trọng -->
+    <!-- User Panel: Left Side -->
+    <!-- Use partials, layouts -->
+    <%- include('../partials/user-panel.ejs') %>
+    <!-- Profile Content: Right Side -->
+    <section class="col-lg-9 security-panel h-100">
+      <div class="card-body">
+        <!-- Username -->
+        <div class="d-flex justify-content-between align-items-end pb-3 mb-4">
+          <div class="flex-grow-1 w-100">
+            <label for="username" class="form-label">Username</label>
+            <input
+              class="form-control text-white-50"
+              id="username"
+              value="<%= username %>"
+              readonly
+            />
+          </div>
+          <a href="/account/security/edit" class="btn btn-primary btn-security"
+            >Edit</a
+          >
+        </div>
+
+        <!-- Password -->
+        <div class="d-flex justify-content-between align-items-end pb-3 mb-4">
+          <div class="flex-grow-1 w-100">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control text-white-50"
+              id="password"
+              value="<%= password %>"
+              readonly
+            />
+          </div>
+          <a href="/account/security/edit" class="btn btn-primary btn-security"
+            >Change Password</a
+          >
+        </div>
+
+        <!-- Security Question -->
+        <% if (securityQA.length > 0) { %> <% securityQA.forEach(function(qa,
+        index) { %>
+        <!-- Security Question <%= index + 1 %> -->
+        <div class="d-flex justify-content-between align-items-end pb-3 mb-4">
+          <div class="flex-grow-1 w-100">
+            <label for="question<%= index + 1 %>" class="form-label"
+              >Security Question <%= index + 1 %></label
+            >
+            <input
+              class="form-control text-white-50"
+              id="question<%= index + 1 %>"
+              value="<%= qa.question %>"
+              readonly
+            />
+          </div>
+          <a href="/account/security/edit" class="btn btn-primary btn-security"
+            >Edit Question</a
+          >
+        </div>
+
+        <!-- Security Answer <%= index + 1 %> -->
+        <div class="d-flex justify-content-between align-items-end pb-3 mb-4">
+          <div class="flex-grow-1 w-100">
+            <label for="answer<%= index + 1 %>" class="form-label"
+              >Security Answer <%= index + 1 %></label
+            >
+            <input
+              class="form-control text-white-50"
+              id="answer<%= index + 1 %>"
+              value="<%= qa.answer %>"
+              readonly
+            />
+          </div>
+          <a href="/account/security/edit" class="btn btn-primary btn-security"
+            >Edit Answer</a
+          >
+        </div>
+        <% }) %> <% } %>
+
+        <div class="d-flex justify-content-end gap-3 mt-5">
+          <button
+            type="button"
+            class="text-decoration-none rounded-3 px-3 py-2 discard-btn border-0"
+            data-bs-toggle="modal"
+            data-bs-target="#deactivateAccountModal"
+          >
+            Deactivate account
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteAccountModal"
+          >
+            Delete account
+          </button>
+        </div>
+        <div
+          class="modal fade"
+          id="deactivateAccountModal"
+          tabindex="-1"
+          aria-labelledby="deactivateAccountModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+          >
+            <div class="modal-content delete-account-background">
+              <div class="modal-header">
+                <span
+                  class="modal-title fw-bold"
+                  id="deactivateAccountModalLabel"
+                  >Deactivate Account</span
+                >
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p class="mb-0">
+                  By deactivating, your activities will be hidden from the
+                  website. You can reactive your account by signing in.
+                </p>
+              </div>
+              <div class="modal-footer d-flex flex-row gap-2">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <form
+                  action="/account/security/deactivate"
+                  method="post"
+                  class="m-0"
+                >
+                  <button type="submit" class="btn btn-warning">
+                    Deactivate
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="deleteAccountModal"
+          tabindex="-1"
+          aria-labelledby="deleteAccountModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"
+          >
+            <div class="modal-content delete-account-background">
+              <div class="modal-header">
+                <span class="modal-title fw-bold" id="deleteAccountModalLabel"
+                  >Delete Account</span
+                >
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p class="mb-0">
+                  Please be aware that you cannot undo this action!
+                </p>
+              </div>
+              <div class="modal-footer d-flex flex-row gap-2">
+                <button
+                  type="button"
+                  class="close-delete-account-btn text-center border-0 outline-0 px-3 py-2 text-decoration-none"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <form
+                  action="/account/security/delete"
+                  method="post"
+                  class="m-0"
+                >
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

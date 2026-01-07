@@ -1,0 +1,72 @@
+<main class="container-fluid admin-shell">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard/admin" class="text-decoration-none text-light">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="/dashboard/admin/users" class="text-decoration-none text-light">User Management</a></li>
+        </ol>
+    </nav>
+  <section class="admin-card">
+    <div class="admin-card__header">
+      <div>
+        <p class="admin-eyebrow">Directory</p>
+        <h1 class="admin-section-title">Manage Users</h1>
+        <p class="admin-hero__subtitle">
+          Lock or unlock accounts while keeping the experience consistent.
+        </p>
+      </div>
+    </div>
+    <div class="table-responsive admin-table-wrapper">
+      <table class="table admin-table align-middle">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.displayUsername %></td>
+            <td><%= user.isAdmin ? 'Admin' : 'User' %></td>
+            <td>
+              <% if (user.isLocked) { %>
+              <span class="badge badge-danger">Locked</span>
+              <% } else { %>
+              <span class="badge badge-success">Active</span>
+              <% } %>
+            </td>
+            <td><%= new Date(user.createdAt).toLocaleDateString() %></td>
+            <td>
+              <% const isSelf = user.idStr === currentUserId; %> <% if
+              (user.isAdmin || isSelf) { %>
+              <span class="badge badge-warning">Admin</span>
+              <% } else if (user.isLocked) { %>
+              <form
+                method="post"
+                action="/dashboard/admin/users/<%= user._id %>/unlock"
+                data-confirm="Unlock this account?"
+              >
+                <button type="submit">Unlock</button>
+              </form>
+              <% } else { %>
+              <form
+                method="post"
+                action="/dashboard/admin/users/<%= user._id %>/lock"
+                data-confirm="Lock this account?"
+              >
+                <button type="submit">Lock</button>
+              </form>
+              <% } %>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

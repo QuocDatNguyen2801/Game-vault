@@ -1,0 +1,94 @@
+/* ========================================
+   SITEMAP.CSS — MATCH FORUM TITLE SPACING
+   ======================================== */
+
+/* Clear fixed navbar + match Forum */
+.sitemap-header {
+  padding-top: 6rem;      /* pt-24 = 96px */
+  margin-bottom: 3rem;    /* mb-12 = 48px */
+  text-align: center;
+}
+
+.sitemap-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #ffffff !important;
+  margin: 0 0 0.5rem 0;
+}
+
+.sitemap-subtitle {
+  color: #94A3B8;         /* text-slate-400 */
+  font-size: 1.1rem;
+  margin-top: 0.5rem;     /* mt-2 */
+  font-weight: 500;
+}
+
+/* Main card — NO TOP MARGIN */
+.sitemap-card {
+  background: #1E2533;    /* bg-[#050816] → closest */
+  border: 1px solid rgba(100, 116, 139, 0.4); /* border-slate-700/40 */
+  border-radius: 1.5rem;  /* rounded-2xl */
+  padding: 2.5rem;        /* px-10 py-10 */
+  max-width: 80rem;       /* max-w-5xl */
+  margin: 0 auto 2rem;    /* mx-auto + bottom margin */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+@media (max-width: 992px) {
+  .sitemap-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .sitemap-header {
+    padding-top: 5rem;
+  }
+  .sitemap-card {
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
+
+/* Column Headers */
+.sitemap-column h3 {
+  color: #00D5FF;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+/* Links */
+.sitemap-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.sitemap-links li a {
+  color: #CBD5E1;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: block;
+  padding: 0.35rem 0;
+  border-radius: 8px;
+}
+
+.sitemap-links li a:hover {
+  color: #00D5FF;
+  background: rgba(0, 213, 255, 0.1);
+  padding-left: 0.5rem;
+}
+

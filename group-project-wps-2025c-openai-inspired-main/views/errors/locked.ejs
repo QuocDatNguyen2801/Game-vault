@@ -1,0 +1,26 @@
+<!-- Reuse admin dashboard styling so the lock page matches the protected area -->
+<link rel="stylesheet" href="/css/admin-dashboard.css" />
+
+<main class="container-fluid admin-shell">
+  <section class="admin-card admin-card--narrow">
+    <div class="admin-card__header">
+      <div>
+        <p class="admin-eyebrow">Security</p>
+        <h1 class="admin-section-title" style="font-size: 2rem">
+          Account Locked
+        </h1>
+        <p class="admin-hero__subtitle">
+          Your account is locked. Contact support if this is unexpected.
+        </p>
+      </div>
+    </div>
+    <p style="color: var(--admin-muted); margin-bottom: 1.5rem">
+      For your safety, we’ve temporarily locked access. Reach out to an
+      administrator or support to restore your account.
+    </p>
+    <div class="admin-hero__cta">
+      <a class="btn admin-btn" href="/user/signin">Try again</a>
+      <a class="btn admin-btn ghost" href="/">Return home</a>
+    </div>
+  </section>
+</main>

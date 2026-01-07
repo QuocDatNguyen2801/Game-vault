@@ -1,0 +1,134 @@
+<div class="container-fluid categories-background mt-2 pt-4 pb-5">
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/categories" class="text-decoration-none text-light">Categories</a></li>
+            </ol>
+        </nav>
+        <h1 class="categories-title fw-bold">Game Categorties</h1>
+        <span class="muted">Browse games by category and find your next adventure</span>
+
+        <div class="row mt-md-5 mt-3 g-3">
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Action">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Action
+                    </span>
+
+                    <span class="muted">Action Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Action'] || 0 %> <span>game<%= categoryCounts['Action'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Adventure">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Adventure
+                    </span>
+
+                    <span class="muted">Adventure Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Adventure'] || 0 %> <span>game<%= categoryCounts['Adventure'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/FPS">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        FPS
+                    </span>
+
+                    <span class="muted">First-Person Shooter Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['FPS'] || 0 %> <span>game<%= categoryCounts['FPS'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Horror">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Horror
+                    </span>
+
+                    <span class="muted">Horror Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Horror'] || 0 %> <span>game<%= categoryCounts['Horror'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Puzzle">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Puzzle
+                    </span>
+
+                    <span class="muted">Puzzle Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Puzzle'] || 0 %> <span>game<%= categoryCounts['Puzzle'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Racing">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Racing
+                    </span>
+
+                    <span class="muted">Racing Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Racing'] || 0 %> <span>game<%= categoryCounts['Racing'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/RPG">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        RPG
+                    </span>
+
+                    <span class="muted">Role-Playing Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['RPG'] || 0 %> <span>game<%= categoryCounts['RPG'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Simulation">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Simulation
+                    </span>
+
+                    <span class="muted">Simulation Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Simulation'] || 0 %> <span>game<%= categoryCounts['Simulation'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Sports">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Sports
+                    </span>
+
+                    <span class="muted">Sports Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Sports'] || 0 %> <span>game<%= categoryCounts['Sports'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a class="category-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-2 text-decoration-none" href="/categories/Strategy">
+                    <span class="d-flex align-items-center gap-2 category-title fw-bold">
+                        <span class="tag-container px-2 py-0"><i class="bi bi-tag tag"></i></span>
+                        Strategy
+                    </span>
+
+                    <span class="muted">Strategy Games</span>
+                    <span class="muted mt-4"><%= categoryCounts['Strategy'] || 0 %> <span>game<%= categoryCounts['Strategy'] !== 1 ? 's' : '' %></span> available</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

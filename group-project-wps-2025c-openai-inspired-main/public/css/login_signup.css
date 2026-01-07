@@ -1,0 +1,736 @@
+/* Color Variables - matching the design */
+@import url("variables.css");
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1500px;
+}
+/* Body Background */
+body {
+  background-color: #0b1220;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Login Card Styling */
+.login-card {
+  background-color: #1f2937;
+  border-radius: 16px;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 168, 232, 0.15);
+}
+
+/* Card Title */
+h1.card-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.user-card h1.card-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  font-size: 14px;
+}
+
+/* Overwrite Nav Pills Styling (Color) */
+.nav-customize {
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Modify text of standing point in nav color */
+.nav-customize .nav-link {
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 580;
+  transition: all 0.3s ease;
+  color: var(--primary-foreground);
+}
+/* Modify background of active nav link */
+.nav-customize .nav-link.active {
+  background-color: var(--primary);
+  color: black;
+  z-index: 2;
+}
+
+.nav-link-customize {
+  background-color: transparent;
+}
+
+/* Form Labels */
+.tab-content .form-label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Input Groups */
+.input-group-text {
+  border: none;
+  color: var(--bg-dark);
+}
+
+.tab-content .form-control {
+  background-color: white;
+  border: none;
+  color: var(--bg-dark);
+  padding: 12px 16px;
+}
+
+.tab-content .form-control::placeholder {
+  color: #6c757d;
+}
+
+.tab-content .form-control:focus {
+  background-color: white;
+  color: var(--bg-dark);
+  box-shadow: 0 0 0 0.25rem rgba(0, 168, 232, 0.25);
+  border: none;
+}
+
+/* Links */
+a {
+  color: var(--primary-blue);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0088bb;
+}
+
+/* Primary Button */
+.tab-content .btn-primary,
+.user-card .btn-primary {
+  background-color: var(--primary);
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.tab-content .btn-primary:hover,
+.user-card .btn-primary:hover {
+  background-color: #0088bb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 232, 0.3);
+}
+
+.tab-content .btn-primary:active,
+.user-card .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Password Toggle Button */
+.btn-outline-secondary {
+  background-color: white;
+  border: none;
+  color: #6c757d;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: none;
+}
+
+.btn-outline-secondary:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.btn-outline-secondary:active {
+  background-color: #e9ecef !important;
+  border: none !important;
+}
+
+/* User Profile Card */
+.user-card {
+  background-color: var(--card-background);
+  border-radius: 16px;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.user-panel {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+}
+
+.user-panel .card-title {
+  color: var(--bg-dark);
+
+}
+
+.user-panel .nav-link {
+  color: var(--primary-foreground);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 590;
+}
+
+.user-panel .nav-link.active {
+  background-color: var(--foreground);
+  color: var(--bg-dark);
+}
+
+.logout-link {
+  margin-left: 1rem;
+  font-weight: 550;
+  text-align: left;
+  align-self: stretch;
+  color: var(--primary-foreground);
+}
+
+.user-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.panel-info {
+  background-color: transparent;
+  border-radius: 0 8px 8px 0;
+  color: var(--foreground);
+  padding: 24px;
+  height: 100%;
+}
+
+.panel-info .form-control,
+.panel-info .form-select {
+  background-color: var(--primary-foreground);
+  border-radius: 12px;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 168, 232, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 16px;
+}
+
+
+.panel-info .form-control::placeholder,
+.panel-info .form-select {
+  color: var(--foreground);
+}
+
+.panel-info .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: var(--bs-form-select-bg-img);
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  padding-right: 2.75rem;
+}
+
+.panel-info .form-select:focus {
+  border-color: rgba(0, 168, 232, 0.8);
+  box-shadow: 0 0 0 0.25rem rgba(0, 168, 232, 0.25);
+}
+
+.panel-info .form-select option {
+  background-color: #060c18;
+  color: #f5fbff;
+}
+
+.panel-info .form-select option:checked,
+.panel-info .form-select option:hover,
+.panel-info .form-select option:focus {
+  background-color: #00a8e8 !important;
+  color: #041224 !important;
+}
+
+.profile-form .form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.security-panel {
+  background-color: transparent;
+  border-radius: 0 8px 8px 0;
+  color: var(--foreground);
+  padding: 24px;
+  height: 100%;
+}
+
+.security-panel .form-control {
+  background-color: var(--primary-foreground);
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 168, 232, 0.15);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  color: var(--foreground);
+}
+.security-panel .form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.security-panel .form-control {
+  max-width: none;
+}
+
+.games-info-panel {
+  background-color: transparent;
+  border-radius: 0 8px 8px 0;
+  color: var(--foreground);
+  padding: 24px;
+  height: 100%;
+}
+
+.game-card {
+  background-color: var(--primary-foreground);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 168, 232, 0.15);
+  cursor: pointer;
+}
+
+.game-card-img {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.email-card {
+  background: #121a2b;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.email-meta {
+  align-items: start !important;
+}
+
+.email-card-edit {
+  background: #121a2b;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.email-list {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.email-card-add {
+  background: transparent;
+  border: 2px dashed #374151;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.edit-profile-btn {
+  max-width: 120px;
+}
+
+.btn-security {
+  min-width: 195px;
+  text-align: center;
+  margin-left: 1rem;
+  padding: 13px 24px;
+}
+
+/* Avatar Customization */
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+  /* background: none !important;
+  box-shadow: none !important; */
+}
+.user-avatar.default-avatar {
+  padding: 0 !important;
+  width: 100px !important;
+  height: 100px !important;
+  /* object-fit: cover; */
+  background: none !important;
+  border: none !important;
+}
+.avatar-upload-btn.avatar-plus-btn {
+  position: absolute !important;
+  right: 0;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: none !important;
+  border-radius: 50%;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none !important;
+  padding: 0;
+  z-index: 2;
+}
+.avatar-upload-btn.avatar-plus-btn i {
+  font-size: 1.4rem;
+  margin: 0;
+  background: none !important;
+  border-radius: 50%;
+  box-shadow: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-card {
+    margin: 20px;
+  }
+
+  h1.card-title {
+    font-size: 24px;
+  }
+  .card-subtitle {
+    font-size: 12px;
+  }
+
+  /* .form-label {
+    font-size: 16px;
+  } */
+  .signup-security-btn-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .signup-security-btn-row .btn {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  .user-panel {
+    border-radius: 16px 16px 0 0;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: flex-start;
+    padding: 24px 8px;
+    width: 100%;
+    min-height: unset;
+  }
+
+  .user-panel .nav-link {
+    font-size: 16px;
+    padding: 10px 0;
+    justify-content: center;
+  }
+
+  .panel-info .form-control,
+  .panel-info .form-select {
+    max-width: none;
+  }
+
+  .user-avatar {
+    margin-bottom: 12px;
+    margin-top: 0;
+  }
+
+  h1.card-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .btn-security {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin-top: 12px;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .d-flex.justify-content-between.align-items-end {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .user-panel {
+    border-radius: 16px 16px 0 0;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: flex-start;
+    padding: 24px 8px;
+    width: 100%;
+    min-height: unset;
+  }
+
+  .user-panel .nav-link {
+    justify-content: center;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  .panel-info {
+    border-radius: 0 0 16px 16px;
+    padding: 24px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .edit-profile-btn {
+    display: block;
+    max-width: none;
+    width: 100%;
+    margin-top: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .profile-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+.text-end {
+  color: white;
+}
+
+.cart-item-hover:hover {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+}
+
+.login-btn:hover {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+}
+
+.register-btn:hover {
+  background-color: rgb(26, 182, 255);
+}
+
+/* Header */
+.navbar-background {
+  background-color: var(--primary-foreground);
+  border-bottom: 1px solid var(--border);
+}
+
+.login-card .controller {
+  font-size: 4rem;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.userIcon {
+  font-size: 4rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.trashIcon {
+  font-size: 1.5rem;
+  color: var(--trash);
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover .controller {
+  color: hsl(199 89% 70%);
+}
+
+.title {
+  color: var(--accent);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-link {
+  color: var(--foreground);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  font-weight: normal;
+}
+
+.cart-item-hover {
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.cart-item-hover:hover {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+}
+
+.login-btn {
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+}
+
+.discard-btn {
+  background-color: var(--primary-foreground);
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.discard-btn:hover {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+}
+.save-btn {
+  background-color: var(--accent);
+  color: var(--primary-foreground);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.register-btn {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: rgb(26, 182, 255);
+}
+
+/* Footer */
+.footer-background {
+  background-color: var(--footer-background);
+}
+
+.muted {
+  color: var(--muted-foreground);
+}
+
+.footer-title {
+  color: var(--foreground);
+}
+
+.list-shortcut {
+  list-style: none;
+}
+
+.list-shortcut li a {
+  text-decoration: none;
+  color: var(--muted-foreground);
+  transition: color 0.3s ease;
+}
+
+.list-shortcut li a:hover {
+  color: var(--accent);
+}
+
+.copyright {
+  color: var(--muted-foreground);
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 70px;
+}
+
+.password-toggle {
+  box-sizing: border-box;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  color: var(--muted-foreground);
+}
+
+.password-toggle {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.password-toggle:hover,
+.password-toggle:focus,
+.password-toggle:active {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.error {
+  background-color: #443233;
+  color: #f5cfcf;
+  text-align: center;
+}
+
+.error-text {
+  color: #f5cfcf;
+}
+
+.delete-account-background {
+  background-color: var(--card-background);
+  color: white;
+}
+
+.close-delete-account-btn {
+  color: var(--foreground);
+    background-color: var(--muted-foreground);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}

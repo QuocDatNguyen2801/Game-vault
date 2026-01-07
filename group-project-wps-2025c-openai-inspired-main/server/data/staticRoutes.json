@@ -1,0 +1,51 @@
+[
+  {
+    "url": "/",
+    "changefreq": "daily",
+    "priority": 1.0,
+    "name": "Home",
+    "public": true
+  },
+  {
+    "url": "/shop/admin",
+    "changefreq": "daily",
+    "priority": 0.9,
+    "name": "Shop",
+    "public": true
+  },
+  {
+    "url": "/categories",
+    "changefreq": "weekly",
+    "priority": 0.6,
+    "name": "Categories",
+    "public": true
+  },
+  {
+    "url": "/forum",
+    "changefreq": "daily",
+    "priority": 0.8,
+    "name": "Forum",
+    "public": true
+  },
+  {
+    "url": "/blog",
+    "changefreq": "daily",
+    "priority": 0.8,
+    "name": "Blog",
+    "public": true
+  },
+  {
+    "url": "/reviews",
+    "changefreq": "monthly",
+    "priority": 0.8,
+    "name": "Reviews",
+    "public": true
+  },
+  {
+    "url": "/cart",
+    "changefreq": "daily",
+    "priority": 0.8,
+    "name": "Cart",
+    "public": true
+  }
+]

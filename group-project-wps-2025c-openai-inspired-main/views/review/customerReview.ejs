@@ -1,0 +1,182 @@
+<!-- The main of the page -->
+<div class="container py-5 w-100 customer-review">
+    <div class="customer-review title text-center">
+        <h2 class="fw-bold"><%= title %></h2>
+        <p id="reviewNote">Read some experience about your target game</p>
+
+        <div class="writing-form mt-1">
+            <% if (currentUser) { %>
+                <% if (!currentUser.isAdmin) { %>
+                    <p id="openReviewButton">Write Review</p>
+                <% } %>
+            <% } else { %>
+                <a href="/user/signin?next=<%= locals.currentUrl %>" class="text-decoration-none auth-link">
+                    <p>Write Review</p>
+                </a>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Add the search bar and star-rating filter -->
+    <div class="w-100 d-flex justify-content-end mt-1" id="reviewFiltersContainer">
+        <div class="col-md-3 col-12 px-0 text-md-start text-start" id="starFilterWrapper">
+            <div class="review-filter-dropdown dropdown">
+                <button 
+                    class="review-dropdown dropdown-toggle w-100 text-start customize-search-filter p-2" 
+                    type="button" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false"
+                    id="reviewSortDropdown"
+                >
+                    <span id="selectedSortOption">Star Ratings</span>
+                </button>
+    
+                <ul class="review-dropdown dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute">
+                    <li>
+                        <a class="review-dropdown dropdown-item star-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="All Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> All Stars</a>
+                    </li>
+    
+                    <li>
+                        <a class="review-dropdown dropdown-item star-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="5 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 5 Stars</a>
+                    </li>
+    
+                    <li>
+                        <a class="review-dropdown dropdown-item star-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="4 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 4 Stars</a>
+                    </li>
+    
+                    <li>
+                        <a class="review-dropdown dropdown-item star-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="3 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 3 Stars</a>
+                    </li>
+    
+                    <li>
+                        <a class="review-dropdown dropdown-item star-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="2 Stars"><span class="checkmark"><i class="bi bi-check2"></i></span> 2 Stars</a>
+                    </li>
+    
+                    <li>
+                        <a class="review-dropdown dropdown-item star-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-value="1 Star"><span class="checkmark"><i class="bi bi-check2"></i></span> 1 Star</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-12 px-0 text-md-start text-start" id="timeSortWrapper">
+            <div class="review-filter-dropdown dropdown">
+                <button class="review-dropdown dropdown-toggle w-100 text-start customize-search-filter p-2" type="button" data-bs-toggle="dropdown" id="timeSortDropdown">
+                    <span id="selectedTimeOption">Latest to Oldest</span>
+                </button>
+                <ul class="review-dropdown dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" id="timeSortMenu">
+                    <li>
+                        <a class="review-dropdown dropdown-item time-filter-item p-1 d-flex align-items-center gap-2 rounded-3 selected" href="#" data-time="latest">
+                            <span class="checkmark"><i class="bi bi-check2"></i></span> Latest to Oldest
+                        </a>
+                    </li>
+                    <li>
+                        <a class="review-dropdown dropdown-item time-filter-item p-1 d-flex align-items-center gap-2 rounded-3" href="#" data-time="oldest">
+                            <span class="checkmark"><i class="bi bi-check2"></i></span> Oldest to Latest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- No review message -->
+    <div id="noReviewsMessage" class="no-review-message text-center mx-auto mt-4">
+        No reviews found! Let's check another selection or write your own review.
+    </div>  
+
+    <input type="hidden" id="currentLoggedInUser" value="<%= currentUser ? currentUser.username : '' %>">
+    <input type="hidden" id="isAdminUser" value="<%= currentUser ? currentUser.isAdmin : false %>">
+
+    <!-- Main contents -->
+    <div class="reviews-container d-flex mt-4 gy-4"></div>
+
+    <!-- Show more and Show less buttons -->
+    <div class="w-100 text-center mt-3 d-flex justify-content-center align-items-center gap-2">
+        <button id="loadMoreBtn" class="btn btn-primary">
+            Read more reviews
+        </button>
+        
+        <button id="showLessBtn" class="btn btn-outline-secondary">
+            Show less
+        </button>
+    </div>
+</div>
+
+
+<!-- Popup overlay for Write Review form (hidden by default) -->
+<div id="reviewOverlay" class="modal fade review-overlay">
+    <div class="review-form">
+        <div class="review-modal">
+
+            <!-- Title and subtitle of user's review -->
+            <header class="review-header d-flex justify-content-between align-items-center mb-3">
+                <div class="header-text">
+                    <h2 id="reviewHeader" class="fw-semibold">Write a Review</h2>
+                    <p>Share your experience with this product</p>
+                </div>
+                <button class="close-btn" aria-label="Close dialog">×</button>
+            </header>
+
+            <!-- Horizontal divider -->
+            <hr class="divider" />
+
+            <!-- Input fields for users -->
+            <main class="review-main">
+
+                <!-- Title of Reviews -->
+                <label for="review-brief-title" class="form-label fw-semibold">Review Title</label>
+                <input type="text" id="review-brief-title" placeholder="Summarize your experience..." required/>
+                <div id="review-title-error" class="text-danger mt-1 review-field-error"></div>
+
+                <!-- Rating selection -->
+                <label for="review-rating" class="form-label fw-semibold">Rating</label>
+                <div class="rating-select" id="ratingSelect">
+                    <div class="rating-select-trigger d-flex align-items-center justify-content-between form-control">
+                        <span id="ratingText">★★★★★</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+
+                    <ul class="rating-select-menu">
+                        <li data-value="5">★★★★★</li>
+                        <li data-value="4">★★★★☆</li>
+                        <li data-value="3">★★★☆☆</li>
+                        <li data-value="2">★★☆☆☆</li>
+                        <li data-value="1">★☆☆☆☆</li>
+                    </ul>
+
+                    <input type="hidden" id="review-rating" value="5">
+                </div>
+
+                <!-- Customer experience -->
+                <label for="review-description" class="form-label fw-semibold">Your Review</label>
+                <textarea id="review-description" placeholder="Tell us more about your experience..." required></textarea>
+                <div id="review-description-error" class="review-field-error text-danger mt-1"></div>
+
+                <!-- Customer's images -->
+                <label for="review-image" class="form-label fw-semibold">Image (Optional)</label>
+                <input type="file" id="review-image"/>
+                <div id="review-image-error" class="review-field-error text-danger mt-1"></div>
+            </main>
+
+            <!-- Horizontal divider -->
+            <hr class="divider" />
+
+            <!-- Buttons for closing or submitting the form -->
+            <footer class="review-footer">
+                <button class="btn btn-outline-secondary rev-form-cls-btn">Close</button>
+                <button class="btn btn-submit rev-form-sm-btn">Submit Review</button>
+            </footer>
+
+        </div>
+    </div>
+</div> 
+
+<div id="successNotification" class="success-notification">
+    <div class="notification-content">
+        <div class="review-check-icon">                
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <h3 id="notificationText">Success!</h3>
+    </div>
+</div>

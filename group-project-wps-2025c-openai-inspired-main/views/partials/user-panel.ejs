@@ -1,0 +1,72 @@
+<div
+  class="user-panel col-12 col-md-3 d-flex flex-column align-items-center text-center"
+>
+  <!-- Avatar and Welcome Message -->
+  <div class="w-100 d-flex flex-column align-items-center">
+    <div class="avatar-wrapper">
+      <img
+        src="<%= avatar %>"
+        alt="User avatar"
+        class="user-avatar mt-4<%= avatar === '/img/default-avatar.png' ? ' default-avatar' : '' %>"
+      />
+      <form
+        action="/account/upload-avatar"
+        method="post"
+        enctype="multipart/form-data"
+        class="avatar-upload-form"
+      >
+        <label
+          for="avatar-upload"
+          class="avatar-upload-btn avatar-plus-btn position-absolute"
+        >
+          <i
+            class="bi bi-plus-circle-fill <%= avatar === '/img/default-avatar.png' ? '' : 'text-white' %>"
+          ></i>
+          <input
+            type="file"
+            id="avatar-upload"
+            name="avatar"
+            accept="image/*"
+            class="d-none"
+          />
+        </label>
+      </form>
+    </div>
+    <h1 class="card-title">Welcome, <%= username %></h1>
+    <div class="d-flex gap-2 mt-2">
+      <% const isAdmin = typeof currentUser !== 'undefined' && currentUser &&
+      currentUser.isAdmin; %> <% if (isAdmin) { %>
+      <span class="badge bg-warning text-dark text-uppercase">Admin</span>
+      <% } else { %>
+      <span class="badge bg-secondary text-uppercase">User</span>
+      <% } %>
+    </div>
+  </div>
+  <nav class="nav flex-column w-100 gap-2 mt-4 flex-grow-1">
+    <a
+      class="nav-link <%= activePage === 'profile' ? 'active' : '' %>"
+      href="/account"
+    >
+      <i class="bi bi-person"></i>
+      My Profile
+    </a>
+    <a
+      class="nav-link <%= activePage === 'my-games' ? 'active' : '' %>"
+      href="/account/my-games"
+    >
+      <i class="bi bi-folder-fill"></i>
+      My Games
+    </a>
+    <a
+      class="nav-link <%= activePage === 'security' ? 'active' : '' %>"
+      href="/account/security"
+    >
+      <i class="bi bi-shield-lock-fill"></i>
+      Security
+    </a>
+  </nav>
+  <a class="text-decoration-none logout-link mt-4" href="/user/logout">
+    <i class="bi bi-box-arrow-right"></i>
+    Log out
+  </a>
+</div>

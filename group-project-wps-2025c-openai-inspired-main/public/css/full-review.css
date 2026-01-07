@@ -1,0 +1,279 @@
+@import url("variables.css");
+
+body {
+  scroll-behavior: smooth;
+  background-color: #0b1220;
+}
+
+/* Style the full review section */
+.full-review-section {
+  width: 100%;
+  max-width: 1460px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px; 
+  margin-bottom: 50px;
+}
+
+/* The title of the review */
+#review-title {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #f8fafc;
+  background-color: #0b1220;
+}
+
+/* Style the review container */
+.review-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 35px;
+  padding: 40px;
+  background-color: #1e2533;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* The left review card */
+.review-summary {
+  width: 320px;
+  background-color: #1e2533;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  top: 2px;
+}
+
+.review-img-placeholder {
+  width: 100%;
+  height: 170px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e2533;
+}
+
+.review-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-title {
+  margin-top: 18px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #f8fafc;
+  background-color: #1e2533;
+}
+
+/* Update the username and date of posting review */
+.full-review-meta {
+  margin-top: 15px;
+  background-color: #1e2533;
+  flex-direction: row;
+}
+
+.full-review-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  color: #a0aec0;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  background-color: #1e2533;
+}
+
+.full-review-item i {
+  width: 18px;
+  opacity: 0.85;
+  background-color: #1e2533;
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.full-review-item:first-child {
+    margin-left: -2px;
+  }
+
+/* Stars rating */
+.review-stars {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #1abbf2;
+  background-color: #1e2533;
+  gap: 5px;
+  display: flex;
+}
+
+.review-stars i {
+  background-color: #1e2533;
+}
+
+.review-stars span {
+  background-color: #1e2533;
+  opacity: 80%;
+  font-size: 15px;
+  color: #a0aec0;
+  margin-top: 5px;
+}
+
+#review-author, 
+#review-date {
+  transform: translateY(3px);
+}
+
+#review-author {
+  margin-top: -4px;
+}
+
+/* The text box for reviewer's detailed words */
+.review-text-box {
+  flex: 1;
+  background-color: #1e2533;
+  border-radius: 10px;
+  color: #e5e7eb;
+  font-size: 15px;
+  border: 5px solid #a0aec0;
+  position: relative;
+  padding: 30px;
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: normal;
+  white-space: normal;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 22px;
+  margin-right: 20px;
+  max-width: 900px;
+}
+
+.review-text-box p {
+  margin: 0;
+  background-color: #1e2533;
+}
+
+@media (max-width: 900px) {
+  .review-container {
+    flex-direction: column;
+    padding: 30px;
+    gap: 25px;
+  }
+
+  .review-summary {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .game-title {
+    order: 1;
+  }
+
+  .full-review-meta {
+    order: 2;
+  }
+
+  .review-stars {
+    order: 3;
+    margin-bottom: 10px;
+  }
+
+  .review-img-placeholder {
+    order: 4;
+  }
+
+  .review-text-box {
+    width: 100%;
+    margin-right: 0;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: -15px;
+    position: relative;
+    top: -5px;
+    text-align: left;
+    text-justify: auto;
+    word-spacing: normal;
+    white-space: normal;
+    line-height: 1.6;
+  }
+
+  #review-title {
+    font-size: 24px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;   
+    max-width: 100%;         
+    line-height: 1.3;         
+    margin-bottom: 6px;
+  }
+
+  .review-summary .game-title {
+    margin-top: -15px;
+    order: 1;
+  }
+
+  .review-summary .full-review-meta {
+    order: 2;
+  }
+
+  .review-summary .review-stars {
+    margin-top: -1px;
+    order: 3;
+  }
+
+  .review-summary .review-img-placeholder {
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+    height: auto;
+    order: 4;
+    border-radius: 10px;
+  }
+
+  .review-summary .review-img-placeholder img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .review-summary .game-title,
+  .review-summary .full-review-meta,
+  .review-summary .review-stars {
+      margin-left: 0 !important;  
+      transform: none !important;     
+      width: 100%;                   
+      padding-left: 0;             
+      padding-right: 0;            
+      box-sizing: border-box;
+  }
+
+  #review-author,
+  #review-date {
+    margin-top: -5px;
+  }
+
+  #review-author {
+    margin-left: -2px;
+  }
+
+  .full-review-item:first-child {
+    margin-left: -3px;
+  }
+}

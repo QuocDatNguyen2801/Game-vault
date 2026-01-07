@@ -1,0 +1,71 @@
+<div class="container-fluid orders-background mt-2 pt-4 pb-5">
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%23ffffff'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-light">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/account" class="text-decoration-none text-light">Account</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/orders" class="text-decoration-none text-light">Orders</a></li>
+            </ol>
+        </nav>
+        <h1 class="orders-title fw-bold">Order History</h1>
+
+        <div class="row mt-3 d-flex flex-column gap-3">
+            <div class="col-md">
+                <% if (orders || !orders.length === 0) { %>
+                    <% orders.forEach(order => { %>
+                        <div class="orders-container p-4 d-flex flex-column justify-content-center align-items-stretch gap-3 mb-4">
+                            <div class="d-flex flex-row align-items-center justify-content-between">
+                                <span class="d-flex flex-column gap-2 justify-content-center align-items-start">
+                                    <span class="orders-no fw-bold">Order #<%= order._id %></span>
+                                    <span class="orders-status px-3 py-1 text-center"><%= order.status %></span>
+                                </span>
+
+                                <a href="/order-confirmation/<%= order._id %>" class="text-decoration-none orders-view-details py-2 px-3 d-none d-md-inline">View Details</a>
+                            </div>
+
+                            <div class="d-flex flex-column align-items-stretch justify-content-center gap-0 mt-2">
+                                <% order.items.forEach(item => { %>
+                                    <div class="d-flex flex-row align-items-center justify-content-between my-1">
+                                        <span class="muted"><%= item.title %> x <%= item.quantity %></span>
+                                        <span class="orders-price fw-bold">$<%= Number(item.price).toFixed(2) %></span>
+                                    </div>
+                                <% }) %>
+                            </div>
+
+                            <div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between align-items-start justify-content-center my-md-2 my-3 gap-md-0 gap-4">
+                                <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+                                    <span><i class="bi bi-calendar muted fs-4"></i></span>
+
+                                    <span class="d-flex flex-column align-items-stretch justify-content-center gap-0">
+                                        <span class="muted my-0 orders-date">Order Date</span>
+                                        <span class="my-0 orders-date-details fw-bold"><%= new Date(order.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                                    </span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+                                    <span><i class="bi bi-currency-dollar muted fs-4"></i></span>
+
+                                    <span class="d-flex flex-column align-items-stretch justify-content-center gap-0">
+                                        <span class="muted my-0 orders-date">Total Amount</span>
+                                        <span class="my-0 orders-date-details fw-bold">$<%= Number(order.totals.total).toFixed(2) %></span>
+                                    </span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+                                    <span><i class="bi bi-geo-alt muted fs-4"></i></span>
+
+                                    <span class="d-flex flex-column align-items-stretch justify-content-center gap-0">
+                                        <span class="muted my-0 orders-date">Delivery Address</span>
+                                        <span class="my-0 orders-date-details fw-bold"><%= order.shippingDetails.address %>, <%= order.shippingDetails.city %>, <%= order.shippingDetails.zip %></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <a href="/order-confirmation/<%= order._id %>" class="text-decoration-none orders-view-details py-2 px-3 d-inline-block d-md-none align-self-start">View Details</a>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

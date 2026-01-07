@@ -1,0 +1,1192 @@
+@import url("variables.css");
+
+* {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1500px;             
+}
+
+
+/* Home Page */
+.carousel-item {
+    height: 100vh;
+    background: var(--primary-foreground);
+    opacity: 0;
+}
+
+.image-1 {
+    background-image: url(/img/slide_1.jpg);
+}
+
+.image-2 {
+    background-image: url(/img/slide_2.jpg);
+}
+
+.image-3 {
+    background-image: url(/img/slide_3.jpg);
+}
+
+.overlay-image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+}
+
+.carousel-container-1 {
+    top: 20%; 
+    left: 10%;
+    width: fit-content;
+    max-width: 1500px;
+    z-index: 3;
+}
+
+.carousel-container-1 span {
+    line-height: 0.95;
+}
+
+.hompage-description {
+    font-size: 1.5rem;
+    max-width: 80%;
+}
+
+.homepage-description-discover {
+    font-size: 1.5rem;
+    max-width: 75%;
+}
+
+.level-up {
+    color: var(--foreground);
+    font-size: 5rem;
+}
+
+.gaming {
+    color: var(--primary);
+    font-size: 5rem;
+}
+
+.experience {
+    color: var(--accent);
+    font-size: 5rem;
+}
+
+.browse-game-btn {
+    background-color: var(--primary);
+    color: var(--foreground);
+    border-radius: .75rem;
+    transition: all 0.3s ease;
+    font-size: 1.25rem;
+}
+
+.browse-game-btn:hover {
+    background-color: var(--hover);
+    color: var(--primary-foreground);
+}
+
+.join-btn {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+    border-radius: .75rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    font-size: 1.25rem;
+}
+
+.join-btn:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground);
+}
+
+.carousel-container-2 {
+    top: 20%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    max-width: 1500px;
+    z-index: 3;
+}
+
+.carousel-container-2 span {
+    line-height: 0.95;
+}
+
+.welcome {
+    color: var(--foreground);
+    font-size: 5rem;
+}
+
+.to {
+    color: var(--primary);
+    font-size: 5rem;
+}
+
+.gamevault {
+    color: var(--accent);
+    font-size: 5rem;
+}
+
+.carousel-container-3 {
+    top: 20%; 
+    right: 10%;
+    width: fit-content;
+    max-width: 1500px;
+    z-index: 3;
+}
+
+.carousel-container-3 span {
+    line-height: 0.95;
+}
+
+.discover {
+    color: var(--foreground);
+    font-size: 5rem;
+}
+
+.connect {
+    color: var(--primary);
+    font-size: 5rem;
+}
+
+.play {
+    color: var(--accent);
+    font-size: 5rem;
+}
+
+.explore-gamevault {
+    background-color: var(--primary-foreground);
+}
+
+.explore-gamevault-title {
+    color: var(--foreground);
+    font-size: 2rem;
+}
+
+.explore-gamevault-list {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.explore-gamevault-list:hover {
+    border: 1px solid var(--accent);
+}
+
+.explore-gamevault-icon {
+    color: var(--primary);
+    font-size: 2.5rem;
+}
+
+.game-store {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.secure {
+    background-color: var(--card-background);
+}
+
+.explore-gamevault-aspect {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.customize-explore-gamevault-description {
+    max-width: 90%;
+}
+
+.top-rated-games {
+    background-color: var(--primary-foreground);
+}
+
+.top-rated-games-title {
+    color: var(--foreground);
+    font-size: 2rem;
+}
+
+.view-all {
+    color: var(--accent);
+    transition: all 0.3s ease;
+    border-radius: .5rem;
+    font-size: 14px;
+}
+
+.view-all:hover {
+    color: var(--primary-foreground);
+    background-color: var(--accent);
+}
+
+.star-color {
+    color: var(--accent);
+}
+
+.star {
+    color: var(--muted-foreground);
+}
+
+.ratings-gamevault {
+    font-size: 12px;
+}
+
+
+/* Shopping Store Page */
+.shopping-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.shopping-title {
+    color: var(--foreground);
+}
+
+.input-search {
+    background-color: transparent;
+    border-radius: .5rem;
+    border: 1px solid var(--muted-foreground);
+    transition: all 0.1s ease;
+    color: var(--foreground);
+}
+
+.input-search:focus {
+    border: none;
+    outline: 2px solid var(--primary);
+}
+
+.input-search::placeholder {
+    color: var(--muted-foreground);
+    font-size: 14px;
+}
+
+.search-icon {
+    top: 50%;
+    left: 15px;
+    color: var(--muted-foreground);
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.customize-search-filter {
+    border: 1px solid var(--muted-foreground);
+    transition: all 0.1s ease;
+    color: var(--muted-foreground);
+    border-radius: .5rem;
+}
+
+.customize-search-filter:hover {
+    color: var(--muted-foreground);
+    border: 1px solid var(--muted-foreground);
+}
+
+.customize-search-filter:focus {
+    border: none;
+    outline: 2px solid var(--accent);
+}
+
+.customize-card {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.customize-card:hover {
+    transform: scale(1.03);
+}
+
+.img-thumbnail {
+    border-radius: .75rem .75rem 0 0;
+}
+
+.customize-card-img {
+    transition: all 0.3s ease-in-out;
+    transform-origin: center center;
+    border-radius: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.img-thumbnail:hover .customize-card-img {
+    transform: scale(1.1);
+}
+
+.card-title {
+    color: var(--foreground);
+    transition: all 0.3s ease-in-out;
+}
+
+.card-info:hover .card-title {
+    color: var(--primary);
+}
+
+.card-body .category {
+    display: inline-block;
+    color: var(--accent);
+    background-color: var(--footer-background);
+    font-size: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card-body .category:hover {
+    transform: translateY(-3px);
+}
+
+.price {
+    color: var(--primary);
+}
+
+.stock {
+    font-size: 14px;
+}
+
+.customize-edition-options {
+    border-radius: .5rem;
+    border: none;
+}
+
+.customize-edition-options:focus {
+    border: 2px solid var(--primary);
+}
+
+.form-label {
+    color: var(--foreground);
+}
+
+::placeholder {
+    color: var(--foreground);
+}
+
+.quantity-input-container input.form-control {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+}
+
+.quantity-input-container input.form-control:focus {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+    outline: 2px solid var(--primary);
+}
+
+.btn.add-to-cart-btn {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    transition: all 0.3s ease;
+    font-weight: normal;
+}
+
+.btn.add-to-cart-btn:hover {
+    background-color: hsl(199, 100%, 57%);
+}
+
+.dropdown-toggle {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+    position: relative;
+}
+        
+.dropdown-toggle::after {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dropdown-toggle:hover {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+}
+
+.dropdown-toggle:focus {
+    border: 2px solid var(--primary);
+}
+        
+.dropdown-menu {
+    background-color: var(--primary-foreground);
+}
+
+.dropdown-item {
+    color: var(--foreground);
+}
+        
+.dropdown-item:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+        
+.dropdown-item.selected {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.dropdown-item.selected:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.dropdown-item .checkmark {
+    visibility: hidden;
+    color: var(--foreground);
+}
+
+.dropdown-item.selected .checkmark {
+    visibility: visible;
+    color: var(--primary-foreground);
+}
+
+.dropdown-item:hover .checkmark {
+    color: var(--primary-foreground);
+}
+
+.no-product-msg {
+    color: var(--foreground);
+}
+
+.page-link {
+    background-color: var(--card-background);
+    color: var(--foreground);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-pagination);
+}
+
+.page-link:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid var(--border-pagination);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid var(--border-pagination);
+}
+
+.page-item.disabled .page-link {
+    background-color: transparent;
+    color: var(--muted-foreground);
+    opacity: 0.5;
+    pointer-events: none;
+    border: 1px solid var(--border-pagination);
+}
+
+.page-link:focus {
+    background-color: var(--card-background);
+    color: var(--primary);
+    box-shadow: none;
+}
+
+/* Shopping Cart Page */
+.cart-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.customize-empty-background {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.continue-shop-btn {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.continue-shop-btn:hover {
+    background-color: var(--hover);
+}
+
+.cart-item {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.cart-details {
+    background-color: var(--card-background);
+    width: fit-content;
+}
+
+.customize-cart-img {
+    transition: all 0.3s ease-in-out;
+    transform-origin: center center;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.price-custom {
+    color: var(--foreground);
+}
+
+.quantity-title {
+    color: var(--foreground);
+}
+
+.cart-quantity {
+    width: 4vw;
+    border-radius: .5rem;
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+    transition: all 0.1s ease;
+}
+
+.cart-quantity:focus {
+    outline: 2px solid var(--primary);
+}
+
+.trash-icon {
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+    background-color: var(--card-background);
+}
+
+.trash-icon i {
+    color: var(--trash);
+    transition: all 0.3s ease;
+}
+
+.trash-icon:hover {
+    background-color: var(--primary);
+}
+
+.trash-icon:hover i {
+    color: var(--primary-foreground);
+}
+
+.order-container {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.order-summary {
+    color: var(--foreground);
+}
+
+.subtotal-container {
+    color: var(--foreground);
+}
+
+.tax-container {
+    color: var(--foreground);
+}
+
+.subtotal-title, .tax-title {
+    color: var(--muted-foreground);
+    font-size: 16px;
+}
+
+.subtotal-price, .tax-price {
+    color: var(--foreground);
+    font-size: 16px;
+}
+
+.hr {
+    border-top: 1px solid var(--muted-foreground);
+}
+
+.total-title {
+    color: var(--foreground);
+    font-size: 18px;
+}
+
+.total-price {
+    color: var(--accent);
+    font-size: 18px;
+}
+
+.proceed-btn {
+    color: var(--foreground);
+    background-color: var(--primary);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.proceed-btn:hover {
+    background-color: var(--hover);
+    color: var(--primary-foreground);
+}
+
+.shop-btn {
+    color: var(--foreground);
+    background-color: var(--primary-foreground);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground);
+}
+
+.sticky-top {
+    top: 80px;
+}
+
+
+/* Checkout Page */
+.checkout-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.checkout-title {
+    color: var(--foreground);
+}
+
+.payment-container, .delivery-container {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.payment-infomation, .delivery-information {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.payment-form label, .delivery-form label {
+    color: var(--foreground);
+}
+
+.payment-form input, .delivery-form input {
+    background-color: var(--primary-foreground);
+    border-radius: .5rem;
+    color: var(--foreground);
+}
+
+.payment-form input::placeholder, .delivery-form input::placeholder {
+    color: var(--muted-foreground);
+}
+
+.complete-purchase-btn {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+    border-radius: .75rem;
+    transition: 0.3s all ease;
+}
+
+.complete-purchase-btn:hover {
+    background-color: var(--hover);
+    color: var(--foreground);
+}
+
+
+/* Order Confirmation Page */
+.order-confirmation-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.order-confirmation-title {
+    color: var(--foreground);
+    font-size: 2rem;
+}
+
+.check2 {
+    color: var(--check);
+    font-size: 5rem;
+}
+
+.order-confirmation-container {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.order-summary-title {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.confirmed {
+    color: var(--foreground);
+}
+
+.date-confirmed {
+    color: var(--foreground);
+}
+
+.items-confirmation {
+    color: var(--accent);
+}
+
+.total-amount-confirmation {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.address-confirmation {
+    color: var(--foreground);
+}
+
+.confirmation-message {
+    background-color: var(--primary-foreground);
+    border-radius: .75rem;
+    font-size: 12px;
+}
+
+.continue-shopping-confirmation {
+    color: var(--foreground);
+    background-color: var(--primary-foreground);
+    border-radius: .5rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.continue-shopping-confirmation:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground);
+}
+
+.view-orders-confirmation {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.view-orders-confirmation:hover {
+    background-color: var(--hover);
+    color: var(--foreground);
+}
+
+
+/* Orders Page */
+.orders-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.orders-title {
+    color: var(--foreground);
+    font-size: 2rem;
+}
+
+.orders-container {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.orders-no {
+    color: var(--foreground);
+}
+
+.orders-status {
+    color: var(--primary-foreground);
+    background-color: var(--accent);
+    border-radius: .75rem;
+    font-size: 12px;
+}
+
+.orders-view-details {
+    color: var(--foreground);
+    background-color: var(--primary-foreground);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.orders-view-details:hover {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+}
+
+.orders-price {
+    color: var(--accent);
+}
+
+.orders-date {
+    font-size: 14px;
+}
+
+.orders-date-details {
+    font-size: 14px;
+    color: var(--foreground);
+}
+
+
+/* Categories Page */
+.categories-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.categories-title {
+    color: var(--foreground);
+    font-size: 2rem;
+}
+
+.category-container {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+    transition: all 0.1s ease;
+}
+
+.category-container:hover {
+    outline: 1px solid var(--accent);
+}
+
+.category-title {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.tag {
+    color: var(--foreground);
+}
+
+.tag-container {
+    background-color: var(--accent);
+    border-radius: .75rem;
+}
+
+.specific-category-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.back-to-categories {
+    color: var(--foreground);
+    border-radius: .75rem;
+    transition: all 0.3s ease;
+}
+
+.back-to-categories:hover {
+    background-color: var(--accent);
+    color: var(--primary-foreground);
+}
+
+.specific-category-title {
+    color: var(--foreground);
+}
+
+
+/* Admin Features */
+.admin-mode {
+    color: var(--primary);
+    background-color: var(--card-background);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.create-product-btn {
+    color: var(--foreground);
+    background-color: var(--primary);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.create-product-btn:hover {
+    color: var(--primary-foreground);
+    background-color: var(--hover);
+}
+
+.create-product-background {
+    background-color: var(--card-background);
+} 
+
+.create-product-title-header {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.create-product-form label {
+    color: var(--foreground);
+}
+
+.create-product-form input, .create-product-form textarea {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+}
+
+.create-product-form input::placeholder, .create-product-form textarea::placeholder {
+    color: var(--muted-foreground);
+}
+
+.close-create-product-btn {
+    color: var(--foreground);
+    background-color: var(--muted-foreground);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.close-create-product-btn:hover {
+    background-color: hsl(213, 12%, 48%);
+    color: var(--foreground);
+}
+
+.submit-create-product-btn {
+    color: var(--foreground);
+    background-color: var(--primary);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.submit-create-product-btn:hover {
+    background-color: var(--hover);
+    color: var(--primary-foreground);
+}
+
+.create-product-categories-container label {
+    color: var(--foreground);
+}
+
+.edit-product-btn {
+    color: var(--foreground);
+    background-color: var(--primary-foreground);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.edit-product-btn:hover {
+    color: var(--primary-foreground);
+    background-color: var(--accent);
+}
+
+.delete-product-btn {
+    color: var(--foreground);
+    background-color: var(--trash);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.delete-product-btn:hover {
+    background-color: hsla(0, 84%, 60%, 0.7);
+    color: var(--foreground);
+}
+
+.edit-product-background {
+    background-color: var(--card-background);
+} 
+
+.edit-product-title-header {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.edit-product-form label {
+    color: var(--foreground);
+}
+
+.edit-product-form input, .edit-product-form textarea {
+    background-color: var(--primary-foreground);
+    color: var(--foreground);
+}
+
+.edit-product-form input::placeholder, .edit-product-form textarea::placeholder {
+    color: var(--muted-foreground);
+}
+
+.cancel-edit-product-btn {
+    color: var(--foreground);
+    background-color: var(--muted-foreground);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.cancel-edit-product-btn:hover {
+    background-color: hsl(213, 12%, 48%);
+    color: var(--primary-foreground);
+}
+
+.submit-edit-product-btn {
+    color: var(--foreground);
+    background-color: var(--primary);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.submit-edit-product-btn:hover {
+    background-color: var(--hover);
+    color: var(--primary-foreground);
+}
+
+.edit-product-categories-container label {
+    color: var(--foreground);
+}
+
+
+/* Game Details Page */
+.game-background {
+    background-color: var(--primary-foreground);
+    padding-top: calc(70px + 1rem) !important;
+    min-height: 100vh;
+}
+
+.back-to-shop {
+    color: var(--foreground);
+    transition: all 0.3s ease;
+    border-radius: .5rem;
+    width: fit-content;
+}
+
+.back-to-shop:hover {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.customize-game-img {
+    transition: all 0.3s ease-in-out;
+    transform-origin: center center;
+    border-radius: 0.75rem;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.customize-your-order-background {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.add-to-cart-background {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.customize-your-order-title {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.game-price {
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.game-add-to-cart {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+}
+
+.game-add-to-cart:hover {
+    background-color: var(--hover);
+}
+
+.game-developer, .game-publisher, .game-release-date {
+    color: var(--foreground);
+}
+
+.game-name {
+    color: var(--foreground);
+    font-size: 2rem;
+}
+
+.game-information-background {
+    background-color: var(--card-background);
+    border-radius: .75rem;
+}
+
+.product-information {
+    color: var(--foreground);
+    font-size: 1.5rem;
+}
+
+.game-category, .game-stock {
+    color: var(--foreground);
+}
+
+.game-price-info {
+    color: var(--primary);
+}
+
+.game-category-list {
+    background-color: var(--primary-foreground);
+    color: var(--accent);
+    border-radius: .75rem;
+    font-size: 12px;
+}
+
+.game-reviews {
+    color: var(--foreground);
+    background-color: var(--primary-foreground);
+    font-size: 12px;
+    border-radius: .75rem;
+}
+
+
+/* Mobile View */
+@media (max-width: 768px) {
+    /* Home Page */
+    .level-up {
+        font-size: 3rem;
+    }
+
+    .gaming {
+        font-size: 3rem;
+    }
+
+    .experience {
+        font-size: 3rem;
+    }
+
+    .hompage-description {
+        font-size: 16px;
+    }
+
+    .carousel-container-1 {
+        left: 12%;
+    }
+
+    .carousel-container-3 {
+        right: 12%;
+    }
+
+    .browse-game-btn, .join-btn {
+        font-size: 1rem;
+    }
+
+    .welcome {
+        font-size: 3rem;
+    }
+
+    .to {
+        font-size: 3rem;
+    }
+
+    .gamevault {
+        font-size: 3rem;
+    }
+
+    .discover {
+        font-size: 3rem;
+    }
+
+    .connect {
+        font-size: 3rem;
+    }
+
+    .play {
+        font-size: 3rem;
+    }
+
+    .homepage-description-discover {
+        font-size: 16px;
+    }
+
+    .top-rated-games-title {
+        font-size: 1.5rem;
+    }
+
+    .sticky-top {
+        position: static; 
+        top: initial;
+    }
+
+    .cart-quantity {
+        width: 100%;
+    }
+}
